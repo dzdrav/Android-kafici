@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.ViewDebug;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// TODO pogledati kod s predavanja
+// kreirati klasu Adapter i UNUTAR nje staviti DBHelper
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,11 +48,13 @@ public class MainActivity extends AppCompatActivity {
         persons = new ArrayList<>();
 
         // proba s podacima iz baze, obrisati po potrebi
-        SQLiteDatabase db = mydb.getWritableDatabase();
+        //SQLiteDatabase db = mydb.getWritableDatabase();
+
         ContentValues values = new ContentValues();
         values.put(KaficContract.KaficEntry.COLUMN_NAME_NAZIV, "Alfredo");
         values.put(KaficContract.KaficEntry.COLUMN_NAME_ADRESA, "Draskoviceva 56");
         long newrowid = db.insert(KaficContract.KaficEntry.TABLE_NAME, null, values);
+
         //mydb.umetniKafic("Kafic 1", "Ulica 64");
         //mydb.umetniKafic("Kafic 2", "Ulica 128");
 

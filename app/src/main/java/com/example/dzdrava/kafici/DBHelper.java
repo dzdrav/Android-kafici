@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "KaficiDB.db";
+    public static final String DATABASE_NAME = "KaficiDB";
     public static final String KAFICI_TABLE_NAME = "Kafici";
     public static final String KAFICI_COLUMN_ID = "_Id";
     public static final String KAFICI_COLUMN_NAZIV = "Naziv";
@@ -46,7 +46,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private HashMap hp;
 
     public DBHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 2);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(DATABASE_DROP);
         onCreate(db);
     }
-
+/*
     public boolean umetniKafic(String naziv, String adresa) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -73,7 +73,7 @@ public class DBHelper extends SQLiteOpenHelper {
         //db.close();
         return true;
     }
-/*
+
     public Cursor dohvatiKaficPoId(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("select * from " + KAFICI_TABLE_NAME + " where " + KAFICI_COLUMN_ID + "=" + id + "", null);
