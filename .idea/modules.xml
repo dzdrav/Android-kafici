@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///var/cache/fscache/home/student1/pemarti/AndroidStudioProjects/Android-kafici/Android-kafici.iml" filepath="/var/cache/fscache/home/student1/pemarti/AndroidStudioProjects/Android-kafici/Android-kafici.iml" />
-      <module fileurl="file:///var/cache/fscache/home/student1/pemarti/AndroidStudioProjects/Android-kafici/app/app.iml" filepath="/var/cache/fscache/home/student1/pemarti/AndroidStudioProjects/Android-kafici/app/app.iml" />
+      <module fileurl="file:///var/cache/fscache/home/student1/dzdrava/Documents/android/Android-kafici/Android-kafici.iml" filepath="/var/cache/fscache/home/student1/dzdrava/Documents/android/Android-kafici/Android-kafici.iml" />
+      <module fileurl="file:///var/cache/fscache/home/student1/dzdrava/Documents/android/Android-kafici/app/app.iml" filepath="/var/cache/fscache/home/student1/dzdrava/Documents/android/Android-kafici/app/app.iml" />
     </modules>
   </component>
 </project>
