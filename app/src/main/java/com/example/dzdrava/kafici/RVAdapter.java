@@ -1,7 +1,10 @@
 package com.example.dzdrava.kafici;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,49 +13,76 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
+import static android.support.v4.content.ContextCompat.startActivity;
+
 /**
  * Created by pemarti on 2/27/18.
  */
 
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
+public class RVAdapter extends RecyclerView.Adapter<RVAdapter.KaficViewHolder>{
 
-    public static class PersonViewHolder extends RecyclerView.ViewHolder {
+    public static class KaficViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        public static final String EXTRA_MESSAGE = "com.example.dzdrava.kafici.MESSAGE";
+
         CardView cv;
-        TextView personName;
-        TextView personAge;
-        ImageView personPhoto;
+        TextView kaficName;
+        TextView kaficAdress;
+        ImageView kaficPhoto;
+        int kaficId=0;
 
-        PersonViewHolder(View itemView) {
+        KaficViewHolder(View itemView) {
             super(itemView);
             cv = (CardView)itemView.findViewById(R.id.cv);
-            personName = (TextView)itemView.findViewById(R.id.person_name);
-            personAge = (TextView)itemView.findViewById(R.id.person_age);
-            personPhoto = (ImageView)itemView.findViewById(R.id.person_photo);
+            kaficName = (TextView)itemView.findViewById(R.id.kafic_name);
+            kaficAdress = (TextView)itemView.findViewById(R.id.kafic_adress);
+            kaficPhoto = (ImageView)itemView.findViewById(R.id.kafic_photo);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            //Log.d("klik", "onClick " + view.toString() + " " + "adadas");
+            sendMessage(view,kaficId);
+        }
+
+        public void sendMessage(View view,int id) {
+            Context context = view.getContext();
+            Intent intent = new Intent(context, DisplayActivity.class);
+            String message =Integer.toString(id);
+            intent.putExtra(EXTRA_MESSAGE, message);
+            context.startActivity(intent);
         }
     }
-    List<Person> persons;
+    List<Kafic> kaficList;
+    //private final View.OnClickListener mOnClickListener = new MyOnClickListener();
 
-    RVAdapter(List<Person> persons){
-        this.persons = persons;
+    RVAdapter(List<Kafic> kaficList){
+        this.kaficList = kaficList;
     }
 
     @Override
     public int getItemCount() {
-        return persons.size();
+        return kaficList.size();
     }
 
     @Override
-    public PersonViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public KaficViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item, viewGroup, false);
-        PersonViewHolder pvh = new PersonViewHolder(v);
+        KaficViewHolder pvh = new KaficViewHolder(v);
+        //viewGroup.setOnClickListener(mOnClickListener);
+        Log.d("stvori", "onCreate " + Integer.toString(i));
         return pvh;
     }
 
     @Override
-    public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
-        personViewHolder.personName.setText(persons.get(i).name);
-        personViewHolder.personAge.setText(persons.get(i).age);
-        personViewHolder.personPhoto.setImageResource(persons.get(i).photoId);
+    public void onBindViewHolder(KaficViewHolder kaficViewHolder, int i) {
+        Log.d("stvori", "onBind " + Integer.toString(i));
+        kaficViewHolder.kaficName.setText(kaficList.get(i).name);
+        kaficViewHolder.kaficAdress.setText(kaficList.get(i).adress);
+        kaficViewHolder.kaficPhoto.setImageResource(kaficList.get(i).photoId);
+        kaficViewHolder.kaficId=kaficList.get(i).dbId;
     }
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {

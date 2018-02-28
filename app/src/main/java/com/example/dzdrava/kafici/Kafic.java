@@ -3,14 +3,18 @@ package com.example.dzdrava.kafici;
 /**
  * Created by pemarti on 2/27/18.
  */
-class Person {
+class Kafic {
+    int dbId;
     String name;
-    String age;
+    String adress;
     int photoId;
 
-    Person(String name, String age, int photoId) {
+
+    Kafic(int dbId, String name, String adress, int photoId) {
+        this.dbId = dbId;
         this.name = name;
-        this.age = age;
+        this.adress = adress;
         this.photoId = photoId;
     }
+
 }

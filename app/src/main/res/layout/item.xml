@@ -4,38 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/cv"
+    android:background="?android:attr/selectableItemBackground"
     >
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
         >
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/person_photo"
-            android:layout_alignParentLeft="true"
+            android:id="@+id/kafic_photo"
+            android:scaleType="fitXY"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="16dp"
+
             />
 
         <TextView
+            style="@android:style/TextAppearance.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/person_name"
-            android:layout_toRightOf="@+id/person_photo"
-            android:layout_alignParentTop="true"
-            android:textSize="30sp"
+            android:id="@+id/kafic_name"
+            android:layout_below="@+id/kafic_photo"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
             />
 
         <TextView
+            style="@android:style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/person_age"
-            android:layout_toRightOf="@+id/person_photo"
-            android:layout_below="@+id/person_name"
+            android:id="@+id/kafic_adress"
+            android:layout_below="@+id/kafic_name"
+            android:padding="10dp"
             />
 
     </RelativeLayout>
