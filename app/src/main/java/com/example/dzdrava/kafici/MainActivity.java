@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.LENGTH_LONG).show();
     }*/
     // TODO promijeniti odredište spremanja ovih podataka, radi testa stavljamo ih u Listu varijablu članicu
+    // prilagoditi novom konstruktoru
+    /*
     public void PopulateData()
     {
         db.open();
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             } while(c.moveToNext());
         }
         db.close();
-    }
+    }*/
     // --Dinko
 
 
@@ -110,16 +112,8 @@ public class MainActivity extends AppCompatActivity {
         //53
         //kaficList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.tesla_smart_bar));
 
-            // Dinko: inicijalizacija baze
-        // test - umetanje 2 kafica
-        db.open();
-        long id2;
-        id2 = db.umetniKafic("Albatros", "Ljubljanica",1,4,5,4,5,4,4,5,5,5);
-        id2 = db.umetniKafic("Bulldog", "Bogovićeva ul. 6",1,1,3,5,5,5,4,4,5,5);
-        db.close();
-
         // dohvaćanje kafića iz baze i pospremanje u listu
-        PopulateData();
+        //PopulateData();
         //--get all contacts---
         /*
         db.open();
