@@ -29,6 +29,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.KaficViewHolder>{
         CardView cv;
         TextView kaficName;
         TextView kaficAdress;
+        TextView kaficPrice;
+        TextView kaficCoffee;
         ImageView kaficPhoto;
         int kaficId=0;
 
@@ -37,6 +39,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.KaficViewHolder>{
             cv = (CardView)itemView.findViewById(R.id.cv);
             kaficName = (TextView)itemView.findViewById(R.id.kafic_name);
             kaficAdress = (TextView)itemView.findViewById(R.id.kafic_adress);
+            kaficPrice = (TextView)itemView.findViewById(R.id.cijena);
+            kaficCoffee = (TextView)itemView.findViewById(R.id.kava);
             kaficPhoto = (ImageView)itemView.findViewById(R.id.kafic_photo);
             itemView.setOnClickListener(this);
         }
@@ -82,6 +86,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.KaficViewHolder>{
         kaficViewHolder.kaficName.setText(kaficList.get(i).name);
         kaficViewHolder.kaficAdress.setText(kaficList.get(i).adress);
         kaficViewHolder.kaficPhoto.setImageResource(kaficList.get(i).photoId);
+        kaficViewHolder.kaficPrice.setText(""+kaficList.get(i).cijena+"/5");
+        kaficViewHolder.kaficCoffee.setText(""+kaficList.get(i).kava+"/5");
         kaficViewHolder.kaficId=kaficList.get(i).dbId;
     }
     @Override

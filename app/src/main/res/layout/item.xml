@@ -21,13 +21,50 @@
             android:layout_alignParentTop="true"
 
             />
+        <RelativeLayout
+            android:id="@+id/review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kafic_photo"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/cijenaIcon"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:src="@drawable/dollar"
+                android:scaleType="fitCenter"
+                />
+            <TextView
+                style="@android:style/TextAppearance.Medium"
+                android:id="@+id/cijena"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/cijenaIcon"
+                android:text="cijena"/>
+            <ImageView
+                android:id="@+id/kavaIcon"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_toRightOf="@+id/cijena"
+                android:src="@drawable/coffe_icon"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="20dp"
+                />
+            <TextView
+                style="@android:style/TextAppearance.Medium"
+                android:id="@+id/kava"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/kavaIcon"
+                android:text="kava"/>
+        </RelativeLayout>
 
         <TextView
             style="@android:style/TextAppearance.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/kafic_name"
-            android:layout_below="@+id/kafic_photo"
+            android:layout_below="@+id/review"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="5dp"

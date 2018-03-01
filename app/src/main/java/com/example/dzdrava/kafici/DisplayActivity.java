@@ -25,6 +25,7 @@ import java.util.List;
 public class DisplayActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private List<Kafic> kaficList;
+    //kafic nije klase Kafic nego KaficDetaljno
     Kafic kafic;
     TextView name;
     TextView adress;
@@ -70,11 +71,14 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+        //umjesto initializeData, dobavljamo kafic iz baze s id-em "message"
+
         initializeData();
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(RVAdapter.KaficViewHolder.EXTRA_MESSAGE);
 
+        //iz baze, dobavi redak s id-em "message" i u strukturu KaficDetaljno spremi potrebne stupce
         kafic=findKafic(Integer.parseInt(message));
 
         name=(TextView)findViewById(R.id.name);
@@ -90,7 +94,7 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
         mapFragment.getMapAsync(this);
     }
 
-
+    //nepotrebno
     Kafic findKafic(int dbId) {
         for(Kafic kafic : kaficList) {
             if (kafic.dbId==dbId)
@@ -99,17 +103,19 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
         return null;
     }
 
+    //nepotrebno
     private void initializeData(){
         kaficList = new ArrayList<>();
-        //42
-        kaficList.add(new Kafic(42,"Potter caffe", "Sesvetska 1,10000 Zagreb", R.drawable.potter));
         //33
-        kaficList.add(new Kafic(33,"Miss Donut", "Harambasiceva 32a", R.drawable.miss_donut));
+        kaficList.add(new Kafic(33,"Miss Donut", "Harambasiceva 32a", R.drawable.miss_donut,2,1.5,4.5));
         //19
-        kaficList.add(new Kafic(19,"Finjak", "Vlaska 78", R.drawable.finjak));
-        //53
-        kaficList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.tesla_smart_bar));
+        kaficList.add(new Kafic(19,"Finjak", "Vlaska 78", R.drawable.finjak,1,2,4));
+        //42
+        kaficList.add(new Kafic(42,"Potter caffe", "Sesvetska 1", R.drawable.potter,4,3.75,3.75));
         //43
-        kaficList.add(new Kafic(43,"Procaffe", "Tkalciceva 54", R.drawable.procaffe));
+        kaficList.add(new Kafic(43,"Procaffe", "Tkalciceva 54", R.drawable.procaffe,4,2.75,3.75));
+        //53
+        kaficList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.tesla_smart_bar,1,4,5));
     }
+
 }
