@@ -1,65 +1,65 @@
-"ID";"Naziv";"Adresa ";"BrojOcjena";"ProsjecnaGuzva";"Osvjetljenje";"RazinaBuke";"LjubaznostOsoblja";"Cijene";"KvalitetaKave";"UrednostWC";"UdobnostStolica";"UkupnaAtmosfera";"ProstorZaNepusace";"DozvoljenoPusenje";"Wifi";"DozvoljeniPsi";"Uticnice"
-0;"Albatros";"Ljubljanica";1;4;5;4;5;4;5;5;5;5;"0";"1";"1";"1";"1"
-1;"Alfresco";"Draskoviceva";1;4;3;3;5;3;5;5;5;5;"1";"1";"1";"1";"1"
-2;"Alfresco";"Marticeva";1;4;4;3;5;3;5;5;5;4;"1";"1";"-1";"1";"1"
-3;"ALL IN CAFFE BAR";"Draškovićeva 31";1;3;3;4;4;2;4;4;3;3;"0";"1";"1";"1";"0"
-4;"Anchi";"Trešnjevka";1;3;3;2;3;2;2;4;3;3;"0";"1";"0";"1";"0"
-5;"Argentina";"Ivana Tkalčića 9";2;2.5;4.5;2;3.5;4.5;3.5;4.5;4;3.5;"1";"1";"1";"1";"1"
-6;"Bamboo ";"Vjenceslava Richtera";2;2;2;1.5;3.5;4;3.5;5;4;4;"1";"1";"1";"1";"1"
-7;"Belgravia";"Harambašićeva ul. 31";1;5;5;3;4;3;4;4;3;3;"1";"1";"-1";"1";"-1"
-8;"Bulldog";"Bogovićeva ul. 6";1;1;4;3;5;5;4;4;5;5;"-1";"-1";"-1";"-1";"0"
-9;"Buzz";"Preradovićeva ul. 30";1;3;2;4;5;4;5;4;4;5;"0";"1";"1";"-1";"1"
-10;"Caffè Ellis";"Ilica 253";1;3;2;3;4;4;3;5;4;4;"0";"1";"1";"-1";"-1"
-11;"Carling Pub ";"Trg Petra Preradovića 1 ";1;3;5;2;4;4;5;5;5;4;"-1";"1";"1";"1";"-1"
-12;"Cat Caffe";"Kušlanova 6";1;1;5;3;5;4;5;3;3;5;"1";"0";"1";"0";"0"
-13;"Čeh pub";"Preradovićeva ul. 28";1;1;2;1;3;1;3;4;3;4;"0";"1";"1";"-1";"-1"
-14;"Choco cafe";"Ul. Zinke Kunc 3e";3;4;4.3333333333;3.6666666667;2;2.6666666667;3.3333333333;4.3333333333;3.3333333333;2.3333333333;"1";"1";"1";"1";"1"
-15;"Come in";"Trnsko ul. 2";1;2;5;3;5;3;5;5;4;4;"0";"1";"1";"1";"1"
-16;"Corner bar";"Ulica Augusta Cesarca 4";1;2;3;3;4;5;5;5;5;5;"-1";"1";"1";"-1";"-1"
-17;"Dobar zvuk";"Gajeva ul. 18";2;3.5;2;2.5;4;1;2;2;3;3;"0";"1";"1";"1";"1"
-18;"DUGI";"MARETIĆEVA 13, UTRINA";1;5;4;3;5;3;4;5;4;5;"0";"1";"1";"1";"1"
-19;"Finjak";"Vlaska";1;4;4;4;4;2;4;5;3;5;"1";"1";"1";"1";"-1"
-20;"Good mood";"Vrapče";1;3;4;4;5;1;5;3;4;5;"0";"1";"1";"1";"1"
-21;"History ";"Ul. Ivana Tkalčića 68";1;2;3;2;1;4;3;4;5;4;"1";"1";"1";"0";"0"
-22;"Ivy caffe";"Gracani";1;5;5;5;5;3;5;5;5;5;"1";"0";"1";"0";"1"
-23;"Jedinica";"Bijenička cesta";2;1.5;3.5;2.5;4.5;1.5;4;3;3;4.5;"0";"1";"0";"1";"1"
-24;"Johann Franck";"trg bana josipa jelacica 9";1;4;2;4;3;5;5;4;5;5;"1";"0";"1";"0";"-1"
-25;"Kavanica";"Centar";1;2;5;2;5;3;4;5;4;4;"0";"1";"1";"-1";"1"
-26;"Kim's coffee";"Petrova";1;4;5;3;4;4;4;5;5;5;"1";"0";"1";"-1";"1"
-27;"Leggiero Savica";"Lastovska 42";1;3;2;2;4;3;4;4;5;4;"1";"1";"1";"1";"-1"
-28;"Leggiero Buzin";"Supernova Zagreb, Avenija Većeslava Holjevca 62, Buzin";1;4;4;4;5;5;5;5;5;5;"1";"1";"1";"-1";"1"
-29;"Leggiero Jarun";"Ul. Hrvoja Macanovića 14";1;2;3;3;3;3;3;5;4;4;"1";"1";"1";"-1";"0"
-30;"Leggiero Ravnice";"Maksimirsko naselje IV 25";2;2.5;5;3;4.5;4.5;4.5;4.5;4.5;4.5;"1";"1";"1";"1";"1"
-31;"Lorcabar coffee & wine";"Ede Murtića 7";2;3.5;4;3;4.5;2;4.5;5;4.5;5;"1";"1";"1";"1";"1"
-32;"Mali cafe";"Ul. Đurđe Arnolda 1";1;4;2;2;4;4;5;5;5;5;"0";"1";"-1";"1";"1"
-33;"Miss Donut";"Harambašićeva ul. 32A";2;4.5;5;4.5;5;1.5;4.5;5;5;5;"1";"0";"1";"1";"1"
-34;"Most unusual garden";"Horvaćanska cesta 3";1;2;3;3;4;2;3;4;5;5;"0";"1";"-1";"1";"-1"
-35;"Old Pharmacy Pub";"Andrije Hebranga 11";2;3;2;4;2.5;3.5;2;3.5;3;4;"1";"1";"1";"0";"0"
-36;"Petit cafe";"Petrićev prolaz";1;2;5;5;5;1;4;4;5;4;"0";"1";"1";"1";"0"
-37;"Piccolo Mondo";"Zelinska 7";1;3;4;4;5;2;5;4;4;5;"0";"1";"1";"1";"1"
-38;"Pif";"Preradoviceva ul. 4";1;2;3;3;1;4;5;5;5;5;"0";"1";"1";"1";"1"
-39;"Plavo stablo";"Kneza Domagoja 6";1;2;4;4;4;3;3;2;3;3;"0";"1";"1";"1";"1"
-40;"Playlife";"Bolnička cesta 49a";2;3;4;3.5;5;4;4;4;4;4.5;"1";"1";"1";"0";"0"
-41;"Plaza";"Nemčićeva 3";1;4;4;3;5;3;5;5;5;5;"1";"1";"1";"1";"-1"
-42;"Potter";"Sesvetska 1";4;2;3.5;2.25;3.75;3.75;3.75;4.25;4;4.5;"1";"1";"1";"1";"1"
-43;"Procaffe";"Ul. Ivana Tkalčića 54";4;1.75;2.75;3;4.25;2.75;3.75;5;4.75;4.75;"1";"1";"1";"1";"1"
-44;"Purple bar";"Heinzelova ulica 47b";1;2;3;3;5;4;4;5;4;5;"0";"1";"1";"0";"1"
-45;"Quahwa";"Ul. Nikole Tesle 9/1";1;3;5;3;5;4;5;5;5;5;"1";"0";"1";"-1";"-1"
-46;"Rituals";"Trg Ivana Kukuljevića 14";1;3;5;4;5;3;4;4;3;4;"0";"1";"1";"-1";"-1"
-47;"Roko";"Jarunska 2";2;2.5;3.5;2;4;2.5;3.5;4;4.5;5;"1";"1";"1";"1";"1"
-48;"Royal bar ";"Bolnička cesta 34a";2;3;3;1.5;3.5;3;3;3;3;2.5;"0";"1";"1";"1";"0"
-49;"Silent caffe";"Kneza Mislava 7";2;4;4;3.5;4.5;2;4.5;4;4;3.5;"1";"1";"1";"1";"1"
-50;"Sonata";"Maksimirsko naselje IV 28";1;2;3;4;5;2;5;4;4;4;"1";"1";"0";"1";"1"
-51;"Tangenta";"Bijenicka";1;3;3;4;2;4;1;2;3;2;"1";"1";"1";"-1";"0"
-52;"Teacher's Pub";"Savska cesta 76";1;2;3;2;3;4;5;5;5;4;"0";"1";"1";"0";"-1"
-53;"Tesla Smart Bar";"Horvaćanska cesta 146a";1;3;2;3;3;3;4;4;5;5;"0";"1";"1";"-1";"1"
-54;"The Cookie factory";"Tkalciceva ";1;5;3;4;4;3;4;3;3;4;"1";"0";"-1";"-1";"-1"
-55;"Velvet";"Vrbani";1;2;4;3;4;3;4;3;4;4;"1";"1";"1";"1";"-1"
-56;"Vert";"Grada Mainza 11";1;2;2;3;5;4;5;5;4;5;"0";"1";"1";"1";"1"
-57;"Virage";"Špansko Oranice";1;4;5;3;5;2;5;4;5;4;"1";"1";"1";"1";"1"
-58;"VIRTUOZ";" KNEZA MISLAVA 9";1;2;3;1;3;3;2;4;3;1;"1";"1";"1";"1";"0"
-59;"Virtuoz";"Ulica kneza Mislava 9 ";1;2;1;1;4;2;3;2;3;1;"0";"1";"1";"-1";"-1"
-60;"Vivas Caffe Bar";"Selska cesta 90b1";1;4;5;4;5;3;5;5;5;5;"1";"1";"1";"1";"1"
-61;"Vivas Caffe Bar";"Savica";1;3;4;3;5;4;4;5;5;5;"1";"1";"1";"0";"-1"
-62;"Vivas Caffe Bar";"Sveta Klara";1;5;3;4;5;3;4;5;5;5;"1";"1";"1";"-1";"1"
-63;"Vivas Caffe Bar";;1;2;3;3;4;3;3;3;3;3;"1";"1";"1";"1";"1"
+ID;Naziv;Adresa ;BrojOcjena;ProsjecnaGuzva;Osvjetljenje;RazinaBuke;LjubaznostOsoblja;Cijene;KvalitetaKave;UrednostWC;UdobnostStolica;UkupnaAtmosfera;ProstorZaNepusace;DozvoljenoPusenje;Wifi;DozvoljeniPsi;Uticnice
+0;Albatros;Ljubljanica;1;4;5;4;5;4;5;5;5;5;0;1;1;1;1
+1;Alfresco;Draskoviceva;1;4;3;3;5;3;5;5;5;5;1;1;1;1;1
+2;Alfresco;Marticeva;1;4;4;3;5;3;5;5;5;4;1;1;-1;1;1
+3;ALL IN CAFFE BAR;Draškovićeva 31;1;3;3;4;4;2;4;4;3;3;0;1;1;1;0
+4;Anchi;Trešnjevka;1;3;3;2;3;2;2;4;3;3;0;1;0;1;0
+5;Argentina;Ivana Tkalčića 9;2;2.5;4.5;2;3.5;4.5;3.5;4.5;4;3.5;1;1;1;1;1
+6;Bamboo ;Vjenceslava Richtera;2;2;2;1.5;3.5;4;3.5;5;4;4;1;1;1;1;1
+7;Belgravia;Harambašićeva ul. 31;1;5;5;3;4;3;4;4;3;3;1;1;-1;1;-1
+8;Bulldog;Bogovićeva ul. 6;1;1;4;3;5;5;4;4;5;5;-1;-1;-1;-1;0
+9;Buzz;Preradovićeva ul. 30;1;3;2;4;5;4;5;4;4;5;0;1;1;-1;1
+10;Caffè Ellis;Ilica 253;1;3;2;3;4;4;3;5;4;4;0;1;1;-1;-1
+11;Carling Pub ;Trg Petra Preradovića 1 ;1;3;5;2;4;4;5;5;5;4;-1;1;1;1;-1
+12;Cat Caffe;Kušlanova 6;1;1;5;3;5;4;5;3;3;5;1;0;1;0;0
+13;Čeh pub;Preradovićeva ul. 28;1;1;2;1;3;1;3;4;3;4;0;1;1;-1;-1
+14;Choco cafe;Ul. Zinke Kunc 3e;3;4;4.3333333333;3.6666666667;2;2.6666666667;3.3333333333;4.3333333333;3.3333333333;2.3333333333;1;1;1;1;1
+15;Come in;Trnsko ul. 2;1;2;5;3;5;3;5;5;4;4;0;1;1;1;1
+16;Corner bar;Ulica Augusta Cesarca 4;1;2;3;3;4;5;5;5;5;5;-1;1;1;-1;-1
+17;Dobar zvuk;Gajeva ul. 18;2;3.5;2;2.5;4;1;2;2;3;3;0;1;1;1;1
+18;DUGI;MARETIĆEVA 13, UTRINA;1;5;4;3;5;3;4;5;4;5;0;1;1;1;1
+19;Finjak;Vlaska;1;4;4;4;4;2;4;5;3;5;1;1;1;1;-1
+20;Good mood;Vrapče;1;3;4;4;5;1;5;3;4;5;0;1;1;1;1
+21;History ;Ul. Ivana Tkalčića 68;1;2;3;2;1;4;3;4;5;4;1;1;1;0;0
+22;Ivy caffe;Gracani;1;5;5;5;5;3;5;5;5;5;1;0;1;0;1
+23;Jedinica;Bijenička cesta;2;1.5;3.5;2.5;4.5;1.5;4;3;3;4.5;0;1;0;1;1
+24;Johann Franck;trg bana josipa jelacica 9;1;4;2;4;3;5;5;4;5;5;1;0;1;0;-1
+25;Kavanica;Centar;1;2;5;2;5;3;4;5;4;4;0;1;1;-1;1
+26;Kim's coffee;Petrova;1;4;5;3;4;4;4;5;5;5;1;0;1;-1;1
+27;Leggiero Savica;Lastovska 42;1;3;2;2;4;3;4;4;5;4;1;1;1;1;-1
+28;Leggiero Buzin;Supernova Zagreb, Avenija Većeslava Holjevca 62, Buzin;1;4;4;4;5;5;5;5;5;5;1;1;1;-1;1
+29;Leggiero Jarun;Ul. Hrvoja Macanovića 14;1;2;3;3;3;3;3;5;4;4;1;1;1;-1;0
+30;Leggiero Ravnice;Maksimirsko naselje IV 25;2;2.5;5;3;4.5;4.5;4.5;4.5;4.5;4.5;1;1;1;1;1
+31;Lorcabar coffee & wine;Ede Murtića 7;2;3.5;4;3;4.5;2;4.5;5;4.5;5;1;1;1;1;1
+32;Mali cafe;Ul. Đurđe Arnolda 1;1;4;2;2;4;4;5;5;5;5;0;1;-1;1;1
+33;Miss Donut;Harambašićeva ul. 32A;2;4.5;5;4.5;5;1.5;4.5;5;5;5;1;0;1;1;1
+34;Most unusual garden;Horvaćanska cesta 3;1;2;3;3;4;2;3;4;5;5;0;1;-1;1;-1
+35;Old Pharmacy Pub;Andrije Hebranga 11;2;3;2;4;2.5;3.5;2;3.5;3;4;1;1;1;0;0
+36;Petit cafe;Petrićev prolaz;1;2;5;5;5;1;4;4;5;4;0;1;1;1;0
+37;Piccolo Mondo;Zelinska 7;1;3;4;4;5;2;5;4;4;5;0;1;1;1;1
+38;Pif;Preradoviceva ul. 4;1;2;3;3;1;4;5;5;5;5;0;1;1;1;1
+39;Plavo stablo;Kneza Domagoja 6;1;2;4;4;4;3;3;2;3;3;0;1;1;1;1
+40;Playlife;Bolnička cesta 49a;2;3;4;3.5;5;4;4;4;4;4.5;1;1;1;0;0
+41;Plaza;Nemčićeva 3;1;4;4;3;5;3;5;5;5;5;1;1;1;1;-1
+42;Potter;Sesvetska 1;4;2;3.5;2.25;3.75;3.75;3.75;4.25;4;4.5;1;1;1;1;1
+43;Procaffe;Ul. Ivana Tkalčića 54;4;1.75;2.75;3;4.25;2.75;3.75;5;4.75;4.75;1;1;1;1;1
+44;Purple bar;Heinzelova ulica 47b;1;2;3;3;5;4;4;5;4;5;0;1;1;0;1
+45;Quahwa;Ul. Nikole Tesle 9/1;1;3;5;3;5;4;5;5;5;5;1;0;1;-1;-1
+46;Rituals;Trg Ivana Kukuljevića 14;1;3;5;4;5;3;4;4;3;4;0;1;1;-1;-1
+47;Roko;Jarunska 2;2;2.5;3.5;2;4;2.5;3.5;4;4.5;5;1;1;1;1;1
+48;Royal bar ;Bolnička cesta 34a;2;3;3;1.5;3.5;3;3;3;3;2.5;0;1;1;1;0
+49;Silent caffe;Kneza Mislava 7;2;4;4;3.5;4.5;2;4.5;4;4;3.5;1;1;1;1;1
+50;Sonata;Maksimirsko naselje IV 28;1;2;3;4;5;2;5;4;4;4;1;1;0;1;1
+51;Tangenta;Bijenicka;1;3;3;4;2;4;1;2;3;2;1;1;1;-1;0
+52;Teacher's Pub;Savska cesta 76;1;2;3;2;3;4;5;5;5;4;0;1;1;0;-1
+53;Tesla Smart Bar;Horvaćanska cesta 146a;1;3;2;3;3;3;4;4;5;5;0;1;1;-1;1
+54;The Cookie factory;Tkalciceva ;1;5;3;4;4;3;4;3;3;4;1;0;-1;-1;-1
+55;Velvet;Vrbani;1;2;4;3;4;3;4;3;4;4;1;1;1;1;-1
+56;Vert;Grada Mainza 11;1;2;2;3;5;4;5;5;4;5;0;1;1;1;1
+57;Virage;Špansko Oranice;1;4;5;3;5;2;5;4;5;4;1;1;1;1;1
+58;VIRTUOZ; KNEZA MISLAVA 9;1;2;3;1;3;3;2;4;3;1;1;1;1;1;0
+59;Virtuoz;Ulica kneza Mislava 9 ;1;2;1;1;4;2;3;2;3;1;0;1;1;-1;-1
+60;Vivas Caffe Bar;Selska cesta 90b1;1;4;5;4;5;3;5;5;5;5;1;1;1;1;1
+61;Vivas Caffe Bar;Savica;1;3;4;3;5;4;4;5;5;5;1;1;1;0;-1
+62;Vivas Caffe Bar;Sveta Klara;1;5;3;4;5;3;4;5;5;5;1;1;1;-1;1
+63;Vivas Caffe Bar;;1;2;3;3;4;3;3;3;3;3;1;1;1;1;1

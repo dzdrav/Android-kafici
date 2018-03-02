@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -50,14 +51,22 @@ public class MainActivity extends AppCompatActivity {
         // Dinko inicijalizacija adaptera
         db = new DBAdapter(this);
 
+        // učitavanje baze s interneta
+        //new DownloadTextTask().execute("https://raw.githubusercontent.com/dzdrav/Android-kafici/master/kafici.csv");
+        new DownloadTextTask().execute("http://web.studenti.math.pmf.unizg.hr/~dzdrava/kafici.csv");
+
         //testna baza
+        /*
         db.open();
         db.umetniKafic("Miss Donut","Harambašićeva 31,10000 Zagreb",1,5,5,3,4,3,4,4,3,3,1,1,-1,1,-1);
         db.umetniKafic("Finjak","Vlaška 78,10000 Zagreb",1,4,4,4,4,2,4,5,3,5,1,1,1,1,-1);
         db.umetniKafic("Procaffe","Tkalčićeva 54, 10000 Zagreb",4,1.75,2.75,3,4.25,2.75,3.75,5,4.75,4.75,1,1,1,1,1);
         db.umetniKafic("Potter","Sesvetska 1, 10000 Zagreb",4,2,3.5,2.25,3.75,3.75,3.75,4.25,4,4.5,1,1,1,1,1);
         db.umetniKafic("Tesla Smart Bar","Horvaćanska cesta 146a, 10000 Zagreb",1,3,2,3,3,3,4,4,5,5,0,1,1,-1,1);
+        // obrisati ovo
+        //Log.d("Kafica u bazi ima", String.valueOf(db.dohvatiSveKafice().getCount()));
         db.close();
+        */
 
         btn = (Button) findViewById(R.id.button2);
         kava=(CheckBox) findViewById(R.id.checkBoxKava);
@@ -73,9 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
         initializeData();
         initializeAdapter();
-
-        // download datoteke s interneta
-        new DownloadTextTask().execute("https://drive.google.com/open?id=1fAjmFNToIaPoTjb20bL7UF3tZcXnhRUw")
     }
 
     @Override
@@ -110,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
         db.close();
     }
 
-
     // otvaranje http konekcije
     private InputStream OpenHttpConnection(String urlString) throws IOException {
         InputStream in = null;
@@ -140,55 +145,81 @@ public class MainActivity extends AppCompatActivity {
         return in;
     }
 
-    // dohvaćanje konkretne datoteke kafici.csv
-    //private void DohvatiKafice(){}
-
     // Dinko čitanje teksta iz datoteke s neta
-    private String DownloadText(String URL)
+    private ArrayList<String> DownloadText(String URL)
     {
-        int BUFFER_SIZE = 2000;
-        InputStream in = null;
-
-        // otvaranje konekcije
+        ArrayList<String> ListaKafica = new ArrayList<String>();
+        //Dinko
         try {
-            in = OpenHttpConnection(URL);
-        } catch (IOException e) {
-            Log.d("NetworkingActivity", e.getLocalizedMessage());
-            return "";
-        }
+            // Create a URL for the desired destination
+            URL url = new URL(URL); //My text file location
+            //First open the connection
+            HttpURLConnection conn=(HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(60000); // timing out in a minute
 
-        // čitanje znakova i stavljanje u String
-        InputStreamReader isr = new InputStreamReader(in);
-        int charRead;
-        String str = "";
-        char[] inputBuffer = new char[BUFFER_SIZE];
-        try {
-            while ((charRead = isr.read(inputBuffer))>0) {
-                //---convert the chars to a String---
-                String readString =
-                        String.copyValueOf(inputBuffer, 0, charRead);
-                str += readString;
-                // dodati razdvajanje novih linija
-                //str += "\n";
-                inputBuffer = new char[BUFFER_SIZE];
+            BufferedReader in2 = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+            String str;
+            while ((str = in2.readLine()) != null) {
+                ListaKafica.add(str);
             }
-            in.close();
-        } catch (IOException e) {
-            Log.d("NetworkingActivity", e.getLocalizedMessage());
-            return "";
+            in2.close();
+        } catch (Exception e) {
+            Log.d("MyTag",e.toString());
         }
-        return str;
+        return ListaKafica;
     }
 
     // pomoćna klasa za dohvaćanje teksta
-    private class DownloadTextTask extends AsyncTask<String, Void, String> {
-        protected String doInBackground(String... urls) {
+    private class DownloadTextTask extends AsyncTask<String, Void, ArrayList<String>> {
+        protected ArrayList<String> doInBackground(String... urls) {
+        //protected String doInBackground(String... urls) {
             return DownloadText(urls[0]);
         }
 
         @Override
-        protected void onPostExecute(String result) {
-            Toast.makeText(getBaseContext(), result, Toast.LENGTH_LONG).show();
+        protected void onPostExecute(ArrayList<String> result) {
+            //Toast.makeText(getBaseContext(), result, Toast.LENGTH_LONG).show();
+            //Log.d("Kafici ", result.get(0));
+
+            db.open();
+            Cursor c = db.dohvatiSveKafice();
+            // umećemo retke samo ako je tablica prazna
+            // TODO maknuti uvjet ako postoji druga provjera za ponovni unos kafića u OnCreate()
+            if ((c ==  null) || (c.getCount() == 0) ) {
+            //if (c.getCount() < 15 ) {
+            Long id;
+                for (String redak : result){
+                    String[] kategorije = redak.split(";");
+                    if (!kategorije[0].equals("ID")) {
+                        //Log.d("Kontrola", "Usli u IF");
+                        try{
+                            id = db.umetniKafic(kategorije[1], kategorije[2], Integer.parseInt(kategorije[3])
+                                    , Double.parseDouble(kategorije[4])
+                                    , Double.parseDouble(kategorije[5])
+                                    , Double.parseDouble(kategorije[6])
+                                    , Double.parseDouble(kategorije[7])
+                                    , Double.parseDouble(kategorije[8])
+                                    , Double.parseDouble(kategorije[9])
+                                    , Double.parseDouble(kategorije[10])
+                                    , Double.parseDouble(kategorije[11])
+                                    , Double.parseDouble(kategorije[12])
+                                    , Integer.parseInt(kategorije[13])
+                                    , Integer.parseInt(kategorije[14])
+                                    , Integer.parseInt(kategorije[15])
+                                    , Integer.parseInt(kategorije[16])
+                                    , Integer.parseInt(kategorije[17])
+                            );
+                            Log.d("Kafic ", id.toString());
+                        }
+                        catch (Exception e){
+                            Log.e("Insert greška",e.toString());
+                        }
+                    }
+                }
+            }
+            db.close();
+
         }
     }
 
