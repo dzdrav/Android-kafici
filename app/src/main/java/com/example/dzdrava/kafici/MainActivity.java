@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn;
     CheckBox kava;
     CheckBox cijena;
+    CheckBox pusacki;
+    CheckBox nepusacki;
     CheckBox wifi;
     CheckBox uticnice;
     CheckBox psi;
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         //testna baza
         db.open();
-        db.umetniKafic("Miss Donut","Harambašićeva 31,10000 Zagreb",1,5,5,3,4,3,4,4,3,3,1,1,-1,1,-1);
+        db.umetniKafic("Miss Donut","Harambašićeva 31,10000 Zagreb",2,4.5,5,4.5,5,1.5,4.5,5,5,5,1,0,1,1,1);
         db.umetniKafic("Finjak","Vlaška 78,10000 Zagreb",1,4,4,4,4,2,4,5,3,5,1,1,1,1,-1);
         db.umetniKafic("Procaffe","Tkalčićeva 54, 10000 Zagreb",4,1.75,2.75,3,4.25,2.75,3.75,5,4.75,4.75,1,1,1,1,1);
         db.umetniKafic("Potter","Sesvetska 1, 10000 Zagreb",4,2,3.5,2.25,3.75,3.75,3.75,4.25,4,4.5,1,1,1,1,1);
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         btn = (Button) findViewById(R.id.button2);
         kava=(CheckBox) findViewById(R.id.checkBoxKava);
         cijena=(CheckBox) findViewById(R.id.checkBoxCijena);
+        pusacki=(CheckBox) findViewById(R.id.checkBoxPusacki);
+        nepusacki=(CheckBox) findViewById(R.id.checkBoxNepusacki);
         wifi=(CheckBox) findViewById(R.id.checkBoxWifi);
         uticnice=(CheckBox) findViewById(R.id.checkBoxuticnice);
         psi=(CheckBox) findViewById(R.id.checkBoxPsi);
@@ -96,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
                 kaficList.add(new Kafic(Integer.parseInt(c.getString(0)),c.getString(1), c.getString(2), R.drawable.coffee,Integer.parseInt(c.getString(3)),Double.parseDouble(c.getString(8)),Double.parseDouble(c.getString(9))));
             } while (c.moveToNext());
         }
-        db.close();    }
+        db.close();
+    }
 
     private void initializeAdapter(){
         RVAdapter adapter = new RVAdapter(kaficList);
@@ -105,36 +110,57 @@ public class MainActivity extends AppCompatActivity {
 
     public void filter(View view){
 
-        Toast.makeText(this, "You clicked on filters", Toast.LENGTH_LONG).show();
-        //boolean isChecked = chb1.isChecked();
-        //boolean isChecked2 = chb2.isChecked();
-        //kaficList=getList(isChecked,isChecked2);
-        //initializeAdapter();
+        Toast.makeText(this, "Filtrirano!", Toast.LENGTH_LONG).show();
+        boolean isCheckedKava = kava.isChecked();
+        boolean isCheckedCijena = cijena.isChecked();
+        boolean isCheckedPusacki=pusacki.isChecked();
+        boolean isCheckedNepusacki = nepusacki.isChecked();
+        boolean isCheckedWifi = wifi.isChecked();
+        boolean isCheckedPsi = psi.isChecked();
+        boolean isCheckedUticnice = uticnice.isChecked();
+        kaficList=getList(isCheckedKava,isCheckedCijena,isCheckedPusacki,isCheckedNepusacki,isCheckedWifi,isCheckedPsi,isCheckedUticnice);
+        initializeAdapter();
     }
 
+    //provjera za pojedinu tvrdnju
+    //je li vrijednost ==1
+    private boolean provjeriFilterBool(boolean filter,int vrijednost){
+        if(filter && vrijednost==1) return true;
+        else if (filter && vrijednost!=1) return false;
+        else return true;
+
+    }
+
+    //provjera za pojedinu kvalitetu usluge
+    //je li vrijednost izmedu lowBound i upBound (ukljuceno)
+    private boolean provjeriFilterDouble(boolean filter,double vrijednost,int lowBound,int upBound){
+        if (filter && (vrijednost>upBound || vrijednost<lowBound)) return false;
+        else return true;
+
+    }
+
+
     //funkcija prima sve checkboxove
-    List<Kafic> getList(boolean f1,boolean f2){
+    List<Kafic> getList(boolean kava,boolean cijena,boolean pusacki, boolean nepusacki, boolean wifi,boolean psi, boolean uticnice){
         //prolaskom po bazi, za svaki redak gledamo odgovara li zahtjevima iz checkboxova
         //ako odgovara, dodajemo ga u listu newList, na način opisan u initializeData()
+        //u tablici baze, pozicije filtara su sljedece:
+        //kava:9,cijena:8,nepusacki:13,pusenje:14,wifi:15,psi:16,uticnice:17
 
         List<Kafic> newList = new ArrayList<>();
-        if(f1 & !f2) newList.add(new Kafic(33,"Miss Donut", "Harambasiceva 32a", R.drawable.miss_donut,2,1.5,4.5));
-        else if(f1 & f2) {
-            //33
-            newList.add(new Kafic(33,"Miss Donut", "Harambasiceva 32a", R.drawable.miss_donut,2,1.5,4.5));
-            //19
-            newList.add(new Kafic(19,"Finjak", "Vlaska 78", R.drawable.finjak,1,2,4));
-            //42
-            newList.add(new Kafic(42,"Potter caffe", "Sesvetska 1", R.drawable.potter,4,3.75,3.75));
+        db.open();
+        Cursor c = db.dohvatiSveKafice();
+        if (c.moveToFirst())
+        {
+            do {
+                if(provjeriFilterBool(pusacki,Integer.parseInt(c.getString(14))) && provjeriFilterBool(nepusacki,Integer.parseInt(c.getString(13))) &&
+                        provjeriFilterBool(wifi,Integer.parseInt(c.getString(15))) && provjeriFilterBool(psi,Integer.parseInt(c.getString(16))) &&
+                        provjeriFilterBool(uticnice,Integer.parseInt(c.getString(17)))
+                        && provjeriFilterDouble(kava,Double.parseDouble(c.getString(9)),4,5) && provjeriFilterDouble(cijena,Double.parseDouble(c.getString(8)),1,2))
+                    newList.add(new Kafic(Integer.parseInt(c.getString(0)),c.getString(1), c.getString(2), R.drawable.coffee,Integer.parseInt(c.getString(3)),Double.parseDouble(c.getString(8)),Double.parseDouble(c.getString(9))));
+            } while (c.moveToNext());
         }
-        else if(f2){
-            //19
-            newList.add(new Kafic(19,"Finjak", "Vlaska 78", R.drawable.finjak,1,2,4));
-            //42
-            newList.add(new Kafic(42,"Potter caffe", "Sesvetska 1", R.drawable.potter,4,3.75,3.75));
-        }
-        else newList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.tesla_smart_bar,1,4,5));
-
+        db.close();
         return newList;
     }
 

@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView2"
-            android:text="Jeftina kava" />
+            android:text="Dobra kava" />
         <CheckBox
             android:id="@+id/checkBoxCijena"
             android:layout_width="wrap_content"
@@ -34,26 +34,39 @@
             android:layout_toEndOf="@+id/checkBoxKava"
             android:layout_below="@+id/textView2"
             android:text="Povoljno" />
+        <CheckBox
+            android:id="@+id/checkBoxPusacki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBoxKava"
+            android:text="Dozvoljeno pusenje" />
+        <CheckBox
+            android:id="@+id/checkBoxNepusacki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/checkBoxPusacki"
+            android:layout_below="@+id/checkBoxKava"
+            android:text="Nepusacki prostor" />
 
         <CheckBox
             android:id="@+id/checkBoxWifi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/checkBoxKava"
+            android:layout_below="@+id/checkBoxPusacki"
             android:text="Wifi" />
 
         <CheckBox
             android:id="@+id/checkBoxuticnice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/checkBoxKava"
+            android:layout_below="@+id/checkBoxPusacki"
             android:layout_toEndOf="@+id/checkBoxWifi"
             android:text="Utičnice" />
         <CheckBox
             android:id="@+id/checkBoxPsi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/checkBoxKava"
+            android:layout_below="@+id/checkBoxPusacki"
             android:layout_toEndOf="@+id/checkBoxuticnice"
             android:text="Dog-friendly" />
 
