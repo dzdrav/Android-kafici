@@ -74,7 +74,6 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
 
             ex.printStackTrace();
         }
-
         return p1;
     }
 

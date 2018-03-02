@@ -1,165 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.dzdrava.kafici.DisplayActivity"
-    android:orientation="vertical"
-    android:scrollbars="vertical">
-
-    <ImageView
-        android:id="@+id/cover_photo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <TextView
-        style="@android:style/TextAppearance.Large"
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"/>
-    <TextView
-        style="@android:style/TextAppearance.Medium"
-        android:id="@+id/adress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"/>
-    <LinearLayout
-        android:id="@+id/review"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-        <ImageView
-            android:id="@+id/cijenaIcon"
-            android:layout_width="20sp"
-            android:layout_height="20sp"
-            android:src="@drawable/dollar"
-            android:scaleType="fitCenter"
-            />
-
-        <TextView
-            android:id="@+id/cijena"
-            style="@android:style/TextAppearance.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:text="@string/cijena" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-        <ImageView
-            android:id="@+id/kavaIcon"
-            android:layout_width="20sp"
-            android:layout_height="20sp"
-            android:src="@drawable/coffe_icon"
-            android:scaleType="fitCenter"
-            />
-
-        <TextView
-            android:id="@+id/kava"
-            style="@android:style/TextAppearance.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:text="@string/kava" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-        <ImageView
-            android:id="@+id/bukaIcon"
-            android:layout_width="20sp"
-            android:layout_height="20sp"
-            android:src="@drawable/noise_icon"
-            android:scaleType="fitCenter"
-            />
-
-        <TextView
-            android:id="@+id/buka"
-            style="@android:style/TextAppearance.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:text="@string/buka" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-        <ImageView
-            android:id="@+id/guzvaIcon"
-            android:layout_width="20sp"
-            android:layout_height="20sp"
-            android:layout_toEndOf="@+id/buka"
-            android:src="@drawable/crowd_icon"
-            android:scaleType="fitCenter"
-            />
-
-        <TextView
-            android:id="@+id/guzva"
-            style="@android:style/TextAppearance.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@+id/guzvaIcon"
-            android:text="@string/guzva" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-        <ImageView
-            android:id="@+id/osvjetljenjeIcon"
-            android:layout_width="20sp"
-            android:layout_height="20sp"
-            android:layout_toEndOf="@+id/guzva"
-            android:src="@drawable/light_icon"
-            android:scaleType="fitCenter"
-            />
-
-        <TextView
-            android:id="@+id/osvjetljenje"
-            style="@android:style/TextAppearance.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@+id/osvjetljenjeIcon"
-            android:text="@string/osvjetljenje" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-        <ImageView
-            android:id="@+id/osobljeIcon"
-            android:layout_width="20sp"
-            android:layout_height="20sp"
-            android:src="@drawable/bartender_icon"
-            android:scaleType="fitCenter"
-            />
-
-        <TextView
-            android:id="@+id/osoblje"
-            style="@android:style/TextAppearance.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:text="@string/osoblje" />
-    </LinearLayout>
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        tools:context="com.example.mapwithmarker.MapsMarkerActivity" />
-
-
-
-
-</LinearLayout>
+        android:layout_height="match_parent"
+        tools:context="com.example.dzdrava.kafici.DisplayActivity"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+    
+        <ImageView
+            android:id="@+id/cover_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            style="@android:style/TextAppearance.Large"
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"/>
+        <TextView
+            style="@android:style/TextAppearance.Medium"
+            android:id="@+id/adress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"/>
+        <LinearLayout
+            android:id="@+id/review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/cijenaIcon"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:src="@drawable/dollar"
+                android:scaleType="fitCenter"
+                />
+    
+            <TextView
+                android:id="@+id/cijena"
+                style="@android:style/TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="@string/cijena" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/kavaIcon"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:src="@drawable/coffe_icon"
+                android:scaleType="fitCenter"
+                />
+    
+            <TextView
+                android:id="@+id/kava"
+                style="@android:style/TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="@string/kava" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/bukaIcon"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:src="@drawable/noise_icon"
+                android:scaleType="fitCenter"
+                />
+    
+            <TextView
+                android:id="@+id/buka"
+                style="@android:style/TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="@string/buka" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/guzvaIcon"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_toEndOf="@+id/buka"
+                android:src="@drawable/crowd_icon"
+                android:scaleType="fitCenter"
+                />
+    
+            <TextView
+                android:id="@+id/guzva"
+                style="@android:style/TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/guzvaIcon"
+                android:text="@string/guzva" />
+        </LinearLayout>
+    
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/osvjetljenjeIcon"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_toEndOf="@+id/guzva"
+                android:src="@drawable/light_icon"
+                android:scaleType="fitCenter"
+                />
+    
+            <TextView
+                android:id="@+id/osvjetljenje"
+                style="@android:style/TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/osvjetljenjeIcon"
+                android:text="@string/osvjetljenje" />
+        </LinearLayout>
+    
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/osobljeIcon"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:src="@drawable/bartender_icon"
+                android:scaleType="fitCenter"
+                />
+    
+            <TextView
+                android:id="@+id/osoblje"
+                style="@android:style/TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="@string/osoblje" />
+        </LinearLayout>
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:context="com.example.mapwithmarker.MapsMarkerActivity" />
+    </LinearLayout>
+</ScrollView>

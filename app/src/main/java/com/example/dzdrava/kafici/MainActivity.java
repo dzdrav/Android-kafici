@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        CreateMenu(menu);
+        //CreateMenu(menu);
         return true;
     }
 
