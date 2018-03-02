@@ -28,8 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private DBAdapter db = null;
 
     Button btn;
-    CheckBox chb1;
-    CheckBox chb2;
+    CheckBox kava;
+    CheckBox cijena;
+    CheckBox wifi;
+    CheckBox uticnice;
+    CheckBox psi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +53,11 @@ public class MainActivity extends AppCompatActivity {
         db.close();
 
         btn = (Button) findViewById(R.id.button2);
-        chb1 = (CheckBox) findViewById(R.id.checkBox1);
-        chb2 = (CheckBox) findViewById(R.id.checkBox2);
-        //btn.setOnClickListener(this);
+        kava=(CheckBox) findViewById(R.id.checkBoxKava);
+        cijena=(CheckBox) findViewById(R.id.checkBoxCijena);
+        wifi=(CheckBox) findViewById(R.id.checkBoxWifi);
+        uticnice=(CheckBox) findViewById(R.id.checkBoxuticnice);
+        psi=(CheckBox) findViewById(R.id.checkBoxPsi);
 
         rv=(RecyclerView)findViewById(R.id.rv);
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -74,19 +79,6 @@ public class MainActivity extends AppCompatActivity {
     {
         return MenuChoice(item);
     }
-
-        // Dinko - funkcija za ispis kontakata (Karaga)
-    /*
-    public void DisplayContact(Cursor c)
-    {
-        Toast.makeText(this,
-                "id: " + c.getString(0) + "\n" +
-                        "Name: " + c.getString(1) + "\n" +
-                        "Email:  " + c.getString(2),
-                Toast.LENGTH_LONG).show();
-    }*/
-
-
 
     private void initializeData(){
         kaficList = new ArrayList<>();
@@ -114,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
     public void filter(View view){
 
         Toast.makeText(this, "You clicked on filters", Toast.LENGTH_LONG).show();
-        boolean isChecked = chb1.isChecked();
-        boolean isChecked2 = chb2.isChecked();
-        kaficList=getList(isChecked,isChecked2);
-        initializeAdapter();
+        //boolean isChecked = chb1.isChecked();
+        //boolean isChecked2 = chb2.isChecked();
+        //kaficList=getList(isChecked,isChecked2);
+        //initializeAdapter();
     }
 
     //funkcija prima sve checkboxove

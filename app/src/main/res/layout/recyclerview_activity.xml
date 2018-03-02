@@ -20,32 +20,48 @@
             android:layout_height="wrap_content"
             android:text="Odaberite filtere"
             android:id="@+id/textView2" />
-
         <CheckBox
-            android:id="@+id/checkBox1"
+            android:id="@+id/checkBoxKava"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView2"
-            android:layout_marginTop="29dp"
-            android:text="Prvi" />
-
+            android:text="Jeftina kava" />
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/checkBoxCijena"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/checkBox1"
-            android:layout_marginStart="17dp"
-            android:layout_toEndOf="@+id/checkBox1"
-            android:text="Drugi" />
+            android:layout_toEndOf="@+id/checkBoxKava"
+            android:layout_below="@+id/textView2"
+            android:text="Povoljno" />
+
+        <CheckBox
+            android:id="@+id/checkBoxWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBoxKava"
+            android:text="Wifi" />
+
+        <CheckBox
+            android:id="@+id/checkBoxuticnice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBoxKava"
+            android:layout_toEndOf="@+id/checkBoxWifi"
+            android:text="Utičnice" />
+        <CheckBox
+            android:id="@+id/checkBoxPsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBoxKava"
+            android:layout_toEndOf="@+id/checkBoxuticnice"
+            android:text="Dog-friendly" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/checkBox2"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="59dp"
+            android:layout_alignParentRight="true"
             android:onClick="filter"
             android:text="Filtriraj"/>
     </RelativeLayout>

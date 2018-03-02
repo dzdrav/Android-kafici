@@ -193,6 +193,37 @@ public class DBAdapter {
         }
         return mCursor;
     }
+
+    public boolean obrisiKafic(long rowId)
+    {
+        return db.delete(KaficContract.KaficEntry.TABLE_NAME, KaficContract.KaficEntry.COLUMN_NAZIV + "=" + rowId, null) > 0;
+    }
+
+    public boolean osvjeziKafic(long rowId, String naziv, String adresa, int brOcjena, double guzva
+            , double osvjetljenje, double buka, double ljubaznost, double cijene, double kvaliteta, double urednost
+            , double udobnost, double atmosfera, int nepusaci, int pusenje, int wifi, int psi, int uticnice)
+    {
+        ContentValues args = new ContentValues();
+
+        args.put(KaficContract.KaficEntry.COLUMN_NAZIV, naziv);
+        args.put(KaficContract.KaficEntry.COLUMN_ADRESA, adresa);
+        args.put(KaficContract.KaficEntry.COLUMN_BROJOCJENA, brOcjena);
+        args.put(KaficContract.KaficEntry.COLUMN_PROSJECNAGUZVA, guzva);
+        args.put(KaficContract.KaficEntry.COLUMN_OSVJETLJENJE, osvjetljenje);
+        args.put(KaficContract.KaficEntry.COLUMN_RAZINABUKE, buka);
+        args.put(KaficContract.KaficEntry.COLUMN_LJUBAZNOSTOSOBLJA, ljubaznost);
+        args.put(KaficContract.KaficEntry.COLUMN_CIJENE, cijene);
+        args.put(KaficContract.KaficEntry.COLUMN_KVALITETAKAVE, kvaliteta);
+        args.put(KaficContract.KaficEntry.COLUMN_UREDNOSTWC, urednost);
+        args.put(KaficContract.KaficEntry.COLUMN_UDOBNOSTSTOLICA, udobnost);
+        args.put(KaficContract.KaficEntry.COLUMN_UKUPNAATMOSFERA, atmosfera);
+        args.put(KaficContract.KaficEntry.COLUMN_PROSTORZANEPUSACE, nepusaci);
+        args.put(KaficContract.KaficEntry.COLUMN_DOZVOLJENOPUSENJE, pusenje);
+        args.put(KaficContract.KaficEntry.COLUMN_WIFI, wifi);
+        args.put(KaficContract.KaficEntry.COLUMN_DOZVOLJENIPSI, psi);
+        args.put(KaficContract.KaficEntry.COLUMN_UTICNICE, uticnice);
+        return db.update(KaficContract.KaficEntry.TABLE_NAME, args, KaficContract.KaficEntry.COLUMN_NAZIV + "=" + rowId, null) > 0;
+    }
     //-- do ovdje
 
     //DONE
@@ -205,7 +236,7 @@ public class DBAdapter {
         return db.insert(DATABASE_TABLE, null, initialValues);
     }*/
 
-    //TODO
+    //DONE
     //---deletes a particular contact---
     /*public boolean deleteContact(long rowId)
     {
@@ -237,7 +268,7 @@ public class DBAdapter {
         return mCursor;
     }*/
 
-    //TODO
+    //DONE
     //---updates a contact---
     /*public boolean updateContact(long rowId, String name, String email)
     {
