@@ -22,7 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DisplayActivity"></activity>
+        <activity
+            android:name=".DisplayActivity"
+            android:parentActivityName="com.example.dzdrava.kafici.MainActivity" >
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDfArBlnO9hB2H_0_5Rr086LjagMkQLBds"/>
