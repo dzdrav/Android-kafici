@@ -46,11 +46,12 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         LatLng location = getLocationFromAddress(this,kafic.adress);
-        googleMap.addMarker(new MarkerOptions().position(location)
-                .title(kafic.name));
-        googleMap.getMaxZoomLevel();
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,15));
-
+        if (location != null){
+            googleMap.addMarker(new MarkerOptions().position(location)
+                    .title(kafic.name));
+            googleMap.getMaxZoomLevel();
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,15));
+        }
     }
     public LatLng getLocationFromAddress(Context context, String strAddress) {
 
@@ -120,9 +121,9 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
 
         Log.d("prije mape","onCreate");
 
-        //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-        //        .findFragmentById(R.id.map);
-        //mapFragment.getMapAsync(this);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
     }
 
     private int GetImage(Context c, String ImageName) {
@@ -155,16 +156,16 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
     //nepotrebno
     /*private void initializeData(){
         kaficList = new ArrayList<>();
-        //k34
-        kaficList.add(new Kafic(k34,"Miss Donut", "Harambasiceva 32a", R.drawable.miss_donut,2,1.5,4.5));
+        //k33
+        kaficList.add(new Kafic(k33,"Miss Donut", "Harambasiceva 32a", R.drawable.miss_donut,2,1.5,4.5));
         //19
-        kaficList.add(new Kafic(19,"Finjak", "Vlaska 78", R.drawable.k20,1,2,4));
+        kaficList.add(new Kafic(19,"Finjak", "Vlaska 78", R.drawable.k19,1,2,4));
         //42
-        kaficList.add(new Kafic(42,"Potter caffe", "Sesvetska 1", R.drawable.k43,4,3.75,3.75));
+        kaficList.add(new Kafic(42,"Potter caffe", "Sesvetska 1", R.drawable.k42,4,3.75,3.75));
         //43
-        kaficList.add(new Kafic(43,"Procaffe", "Tkalciceva 54", R.drawable.k44,4,2.75,3.75));
+        kaficList.add(new Kafic(43,"Procaffe", "Tkalciceva 54", R.drawable.k43,4,2.75,3.75));
         //53
-        kaficList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.k54,1,4,5));
+        kaficList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.k53,1,4,5));
     }*/
 
 }
