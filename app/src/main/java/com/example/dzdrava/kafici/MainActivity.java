@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(llm);
         rv.setHasFixedSize(true);
 
-        initializeData();
-        initializeAdapter();
+        //initializeData();
+        //initializeAdapter();
     }
 
     @Override
@@ -202,6 +202,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             db.close();
+
+            initializeData();
+            initializeAdapter();
         }
     }
 
@@ -211,7 +214,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void filter(View view){
-
         Toast.makeText(this, R.string.filter_filtrirano, Toast.LENGTH_LONG).show();
         boolean isCheckedKava = kava.isChecked();
         boolean isCheckedCijena = cijena.isChecked();
