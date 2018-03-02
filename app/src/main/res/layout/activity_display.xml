@@ -14,7 +14,8 @@
         <ImageView
             android:id="@+id/cover_photo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"/>
         <TextView
             style="@android:style/TextAppearance.Large"
             android:id="@+id/name"
