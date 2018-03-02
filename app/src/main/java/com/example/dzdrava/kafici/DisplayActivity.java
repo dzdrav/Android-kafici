@@ -30,6 +30,15 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
     KaficDetaljno kafic;
     TextView name;
     TextView adress;
+    TextView cijena;
+    TextView kava;
+    TextView buka;
+    TextView guzva;
+    TextView osvjetljenje;
+    TextView osoblje;
+    TextView wc;
+    TextView atmosfera;
+    TextView stolice;
     ImageView cover;
     private DBAdapter db = null;
 
@@ -89,9 +98,21 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
         name=(TextView)findViewById(R.id.name);
         adress=(TextView)findViewById(R.id.adress);
         cover=(ImageView)findViewById(R.id.cover_photo);
+        cijena=(TextView) findViewById(R.id.cijena);
+        kava=(TextView) findViewById(R.id.kava);
+        buka=(TextView) findViewById(R.id.buka);
+        guzva=(TextView) findViewById(R.id.guzva);
+        osoblje=(TextView) findViewById(R.id.osoblje);
+        osvjetljenje=(TextView) findViewById(R.id.osvjetljenje);
 
         name.setText(kafic.name);
         adress.setText(kafic.adress);
+        cijena.setText(kafic.cijena+"/5");
+        kava.setText(kafic.kava+"/5");
+        buka.setText(kafic.buka+"/5");
+        guzva.setText(kafic.guzva+"/5");
+        osvjetljenje.setText(kafic.osvjetljenje+"/5");
+        osoblje.setText(kafic.osoblje+"/5");
         cover.setImageResource(kafic.photoId);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

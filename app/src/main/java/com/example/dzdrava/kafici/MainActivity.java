@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         initializeAdapter();
 
         // download datoteke s interneta
-        new DownloadTextTask().execute("https://drive.google.com/open?id=1fAjmFNToIaPoTjb20bL7UF3tZcXnhRUw")
+        new DownloadTextTask().execute("https://drive.google.com/open?id=1fAjmFNToIaPoTjb20bL7UF3tZcXnhRUw");
     }
 
     @Override
@@ -113,8 +113,7 @@ public class MainActivity extends AppCompatActivity {
         }
         db.close();
     }
-        db.close();
-    }
+
 
 
     // otvaranje http konekcije

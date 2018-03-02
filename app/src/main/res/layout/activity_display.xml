@@ -5,21 +5,146 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.dzdrava.kafici.DisplayActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:scrollbars="vertical">
 
     <ImageView
         android:id="@+id/cover_photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
+        style="@android:style/TextAppearance.Large"
         android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"/>
     <TextView
+        style="@android:style/TextAppearance.Medium"
         android:id="@+id/adress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"/>
+    <LinearLayout
+        android:id="@+id/review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/cijenaIcon"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:src="@drawable/dollar"
+            android:scaleType="fitCenter"
+            />
+        <TextView
+            style="@android:style/TextAppearance.Medium"
+            android:id="@+id/cijena"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:text="Cijena"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/kavaIcon"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:src="@drawable/coffe_icon"
+            android:scaleType="fitCenter"
+            />
+        <TextView
+            style="@android:style/TextAppearance.Medium"
+            android:id="@+id/kava"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:text="Kava"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/bukaIcon"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:src="@drawable/noise_icon"
+            android:scaleType="fitCenter"
+            />
+        <TextView
+            style="@android:style/TextAppearance.Medium"
+            android:id="@+id/buka"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:text="Buka"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/guzvaIcon"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:layout_toEndOf="@+id/buka"
+            android:src="@drawable/crowd_icon"
+            android:scaleType="fitCenter"
+            />
+        <TextView
+            style="@android:style/TextAppearance.Medium"
+            android:id="@+id/guzva"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/guzvaIcon"
+            android:layout_marginLeft="10dp"
+            android:text="Gužva"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/osvjetljenjeIcon"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:layout_toEndOf="@+id/guzva"
+            android:src="@drawable/light_icon"
+            android:scaleType="fitCenter"
+            />
+        <TextView
+            style="@android:style/TextAppearance.Medium"
+            android:id="@+id/osvjetljenje"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/osvjetljenjeIcon"
+            android:layout_marginLeft="10dp"
+            android:text="Osvijetljenje"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/osobljeIcon"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:src="@drawable/bartender_icon"
+            android:scaleType="fitCenter"
+            />
+        <TextView
+            style="@android:style/TextAppearance.Medium"
+            android:id="@+id/osoblje"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:text="Osoblje"/>
+    </LinearLayout>
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"
