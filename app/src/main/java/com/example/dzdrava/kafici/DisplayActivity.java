@@ -8,6 +8,7 @@ import android.location.Geocoder;
 import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -88,6 +89,9 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
 
         //initializeData();
 
+
+        Log.d("pocetak displayActivity","onCreate");
+
         Intent intent = getIntent();
         String message = intent.getStringExtra(RVAdapter.KaficViewHolder.EXTRA_MESSAGE);
 
@@ -115,22 +119,35 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
         osoblje.setText(kafic.osoblje+"/5");
         cover.setImageResource(kafic.photoId);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        Log.d("prije mape","onCreate");
+
+        //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        //        .findFragmentById(R.id.map);
+        //mapFragment.getMapAsync(this);
     }
 
+    private int GetImage(Context c, String ImageName) {
+        //getIdentifier daje lokalni id resursa
+        //getResources daje resurs
+        int other=c.getResources().getIdentifier("coffee", "drawable", c.getPackageName());
+        int id= c.getResources().getIdentifier(ImageName, "drawable", c.getPackageName());
+        if(id>0){
+            return id;
+        }
+        else return other;
+    }
     KaficDetaljno getKafic(int dbId) {
         KaficDetaljno newKafic;
         db.open();
         Cursor c=db.dohvatiKafic(dbId);
+        int slika=GetImage(this,"k"+c.getString(0));
         newKafic=new KaficDetaljno(
                 Integer.parseInt(c.getString(0)),c.getString(1),c.getString(2),Integer.parseInt(c.getString(3)),
                 Double.parseDouble(c.getString(4)),Double.parseDouble(c.getString(7)),Double.parseDouble(c.getString(6)),
                 Double.parseDouble(c.getString(7)),Double.parseDouble(c.getString(8)),Double.parseDouble(c.getString(9))
                 ,Double.parseDouble(c.getString(10)),Double.parseDouble(c.getString(11)),Double.parseDouble(c.getString(12))
                 ,Integer.parseInt(c.getString(13)),Integer.parseInt(c.getString(14)),Integer.parseInt(c.getString(15)),Integer.parseInt(c.getString(16)),Integer.parseInt(c.getString(17)),
-                R.drawable.coffee
+                slika
         );
         db.close();
         return newKafic;
