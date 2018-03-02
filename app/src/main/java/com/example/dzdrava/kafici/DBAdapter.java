@@ -20,7 +20,7 @@ public class DBAdapter {
 
     static final String DATABASE_NAME = "Kafici";
     //static final String DATABASE_TABLE = "glavna";
-    static final int DATABASE_VERSION = 4;
+    static final int DATABASE_VERSION = 10;
 
     // DMS stringovi za tablicu kafici
     public static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + KaficContract.KaficEntry.TABLE_NAME + " (" +
@@ -45,7 +45,7 @@ public class DBAdapter {
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + KaficContract.KaficEntry.TABLE_NAME;
 
-    static final String DATABASE_CREATE=SQL_CREATE_ENTRIES;
+    //static final String DATABASE_CREATE=SQL_CREATE_ENTRIES;
 
     final Context context;
 
@@ -71,7 +71,7 @@ public class DBAdapter {
         public void onCreate(SQLiteDatabase db)
         {
             try {
-                db.execSQL(DATABASE_CREATE);
+                db.execSQL(SQL_CREATE_ENTRIES);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
