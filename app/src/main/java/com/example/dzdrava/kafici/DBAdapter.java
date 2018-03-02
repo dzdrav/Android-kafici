@@ -19,7 +19,7 @@ public class DBAdapter {
     static final String TAG = "DBAdapter";
 
     static final String DATABASE_NAME = "Kafici";
-    static final String DATABASE_TABLE = "glavna";
+    //static final String DATABASE_TABLE = "glavna";
     static final int DATABASE_VERSION = 1;
 
     // DMS stringovi za tablicu kafici
@@ -44,11 +44,6 @@ public class DBAdapter {
             KaficContract.KaficEntry.COLUMN_UTICNICE + " INTEGER)";
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + KaficContract.KaficEntry.TABLE_NAME;
-    //--
-
-    //static final String DATABASE_CREATE =
-      //      "create table contacts (_id integer primary key autoincrement, "
-        //            + "name text not null, email text not null);";
 
     static final String DATABASE_CREATE=SQL_CREATE_ENTRIES;
 
@@ -63,7 +58,7 @@ public class DBAdapter {
         DBHelper = new DatabaseHelper(context);
     }
 
-    // database helper pomoćna klasa
+    // database helper pomoćna (pod)klasa
     // s metodama za kreiranje baze
     private static class DatabaseHelper extends SQLiteOpenHelper
     {
@@ -80,24 +75,13 @@ public class DBAdapter {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            /*// TEST: dodajemo isti segment koda za dodatnu tablicu kafici
-            try {
-                db.execSQL(SQL_CREATE_ENTRIES);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }*/
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
         {
-            // TEST: dodajemo isti segment koda za dodatnu tablicu kafici
-            //Log.w(TAG, "Upgrading db from" + oldVersion + "to" + newVersion );
+            Log.w(TAG, "Upgrading db from" + oldVersion + "to" + newVersion );
             db.execSQL(SQL_DELETE_ENTRIES);
-            //-- do ovdje
-            Log.w(TAG, "Upgrading db from" + oldVersion + "to"
-                    + newVersion );
-            db.execSQL("DROP TABLE IF EXISTS contacts");
             onCreate(db);
         }
     }
@@ -116,8 +100,7 @@ public class DBAdapter {
         DBHelper.close();
     }
 
-    // Dinko: testne metode za manipulaciju kaficima u bazi
-    //--umetanje novog kafica po parametrima (TODO samo 2)--
+    // Dinko: metode za manipulaciju kaficima u bazi
     public long umetniKafic(String naziv, String adresa, int brOcjena, double guzva
             , double osvjetljenje, double buka, double ljubaznost, double cijene, double kvaliteta, double urednost
             , double udobnost, double atmosfera, int nepusaci, int pusenje, int wifi, int psi, int uticnice){
