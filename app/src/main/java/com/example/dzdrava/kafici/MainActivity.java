@@ -1,6 +1,8 @@
 package com.example.dzdrava.kafici;
 
+import android.content.Context;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -104,6 +106,17 @@ public class MainActivity extends AppCompatActivity {
         return MenuChoice(item);
     }
 
+
+    private int GetImage(Context c, String ImageName) {
+        //getIdentifier daje lokalni id resursa
+        //getResources daje resurs
+        int other=c.getResources().getIdentifier("coffee", "drawable", c.getPackageName());
+        int id= c.getResources().getIdentifier(ImageName, "drawable", c.getPackageName());
+        if(id>0){
+            return id;
+        }
+        else return other;
+    }
     private void initializeData(){
         kaficList = new ArrayList<>();
         //iz baze, dobavljaj redak po redak, i za svaki redak
@@ -117,7 +130,9 @@ public class MainActivity extends AppCompatActivity {
         if (c.moveToFirst())
         {
             do {
-                kaficList.add(new Kafic(Integer.parseInt(c.getString(0)),c.getString(1), c.getString(2), R.drawable.coffee,Integer.parseInt(c.getString(3)),Double.parseDouble(c.getString(8)),Double.parseDouble(c.getString(9))));
+                int slika=GetImage(this,"k"+c.getString(0));
+                Log.d(""+slika,"inicijalizacija liste");
+                kaficList.add(new Kafic(Integer.parseInt(c.getString(0)),c.getString(1), c.getString(2),slika,Integer.parseInt(c.getString(3)),Double.parseDouble(c.getString(8)),Double.parseDouble(c.getString(9))));
             } while (c.moveToNext());
         }
         db.close();
@@ -286,7 +301,11 @@ public class MainActivity extends AppCompatActivity {
                         provjeriFilterBool(wifi,Integer.parseInt(c.getString(15))) && provjeriFilterBool(psi,Integer.parseInt(c.getString(16))) &&
                         provjeriFilterBool(uticnice,Integer.parseInt(c.getString(17)))
                         && provjeriFilterDouble(kava,Double.parseDouble(c.getString(9)),4,5) && provjeriFilterDouble(cijena,Double.parseDouble(c.getString(8)),1,2))
-                    newList.add(new Kafic(Integer.parseInt(c.getString(0)),c.getString(1), c.getString(2), R.drawable.coffee,Integer.parseInt(c.getString(3)),Double.parseDouble(c.getString(8)),Double.parseDouble(c.getString(9))));
+                {
+                    int slika=GetImage(this,"k"+c.getString(0));
+                    newList.add(new Kafic(Integer.parseInt(c.getString(0)),c.getString(1), c.getString(2), slika,Integer.parseInt(c.getString(3)),Double.parseDouble(c.getString(8)),Double.parseDouble(c.getString(9))));
+
+                }
             } while (c.moveToNext());
         }
         db.close();

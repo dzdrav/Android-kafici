@@ -20,7 +20,7 @@ public class DBAdapter {
 
     static final String DATABASE_NAME = "Kafici";
     //static final String DATABASE_TABLE = "glavna";
-    static final int DATABASE_VERSION = 10;
+    static final int DATABASE_VERSION = 11;
 
     // DMS stringovi za tablicu kafici
     public static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + KaficContract.KaficEntry.TABLE_NAME + " (" +
