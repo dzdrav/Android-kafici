@@ -15,45 +15,49 @@
             android:background="?android:colorBackground"
             />-->
         <TextView
+            android:id="@+id/textView2"
             style="@android:style/TextAppearance.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Odaberite filtere"
-            android:id="@+id/textView2" />
+            android:text="@string/odaberi_filter" />
+
         <CheckBox
             android:id="@+id/checkBoxKava"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView2"
-            android:text="Dobra kava" />
+            android:text="@string/filter_dobra_kava" />
+
         <CheckBox
             android:id="@+id/checkBoxCijena"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/checkBoxKava"
             android:layout_below="@+id/textView2"
-            android:text="Povoljno" />
+            android:layout_toEndOf="@+id/checkBoxKava"
+            android:text="@string/filter_povoljno" />
+
         <CheckBox
             android:id="@+id/checkBoxPusacki"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkBoxKava"
-            android:text="Dozvoljeno pusenje" />
+            android:text="@string/filter_dozvoljeno_pusenje" />
+
         <CheckBox
             android:id="@+id/checkBoxNepusacki"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/checkBoxPusacki"
             android:layout_below="@+id/checkBoxKava"
-            android:text="Nepusacki prostor" />
+            android:layout_toEndOf="@+id/checkBoxPusacki"
+            android:text="@string/filter_nepuscacki_prostor" />
 
         <CheckBox
             android:id="@+id/checkBoxWifi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkBoxPusacki"
-            android:text="Wifi" />
+            android:text="@string/filter_wifi" />
 
         <CheckBox
             android:id="@+id/checkBoxuticnice"
@@ -61,14 +65,15 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkBoxPusacki"
             android:layout_toEndOf="@+id/checkBoxWifi"
-            android:text="Utičnice" />
+            android:text="@string/filter_uticnice" />
+
         <CheckBox
             android:id="@+id/checkBoxPsi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkBoxPusacki"
             android:layout_toEndOf="@+id/checkBoxuticnice"
-            android:text="Dog-friendly" />
+            android:text="@string/filter_dog_friendly" />
 
         <Button
             android:id="@+id/button2"
@@ -76,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:onClick="filter"
-            android:text="Filtriraj"/>
+            android:text="@string/filter_filter_button" />
     </RelativeLayout>
 
 

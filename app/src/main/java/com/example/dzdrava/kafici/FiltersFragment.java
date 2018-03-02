@@ -35,7 +35,7 @@ public class FiltersFragment extends Fragment implements View.OnClickListener {
     }
     @Override
     public void onClick(View view) {
-        Toast.makeText(getContext(), "You clicked on filters", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getContext(), "You clicked on filters", Toast.LENGTH_LONG).show();
 
         boolean isChecked = chb1.isChecked();
         boolean isChecked2 = chb2.isChecked();

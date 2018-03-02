@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Kafici</string>
+    <string name="cijena">Cijena</string>
+    <string name="kava">Kava</string>
+    <string name="buka">Buka</string>
+    <string name="guzva">Gužva</string>
+    <string name="osvjetljenje">Osvjetljenje</string>
+    <string name="osoblje">Osoblje</string>
+    <string name="odaberi_filter">Odaberite filtere</string>
+    <string name="filter_dobra_kava">Dobra kava</string>
+    <string name="filter_povoljno">Povoljno</string>
+    <string name="filter_dozvoljeno_pusenje">Pušenje dozvoljeno</string>
+    <string name="filter_nepuscacki_prostor">Nepušački prostor</string>
+    <string name="filter_wifi">WiFi</string>
+    <string name="filter_uticnice">Utičnice</string>
+    <string name="filter_dog_friendly">Dozvoljeni psi</string>
+    <string name="filter_filter_button">Filtriraj</string>
+    <string name="filter_filtrirano">Filtrirano!</string>
 </resources>

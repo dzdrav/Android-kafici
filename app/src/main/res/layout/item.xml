@@ -34,13 +34,14 @@
                 android:src="@drawable/dollar"
                 android:scaleType="fitCenter"
                 />
+
             <TextView
-                style="@android:style/TextAppearance.Medium"
                 android:id="@+id/cijena"
+                style="@android:style/TextAppearance.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@+id/cijenaIcon"
-                android:text="cijena"/>
+                android:text="@string/cijena" />
             <ImageView
                 android:id="@+id/kavaIcon"
                 android:layout_width="20sp"
@@ -50,13 +51,14 @@
                 android:scaleType="fitCenter"
                 android:layout_marginLeft="20dp"
                 />
+
             <TextView
-                style="@android:style/TextAppearance.Medium"
                 android:id="@+id/kava"
+                style="@android:style/TextAppearance.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@+id/kavaIcon"
-                android:text="kava"/>
+                android:text="@string/kava" />
         </RelativeLayout>
 
         <TextView

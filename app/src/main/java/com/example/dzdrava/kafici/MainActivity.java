@@ -48,14 +48,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.recyclerview_activity);
-
         // Dinko inicijalizacija adaptera
         db = new DBAdapter(this);
-
         // učitavanje baze s interneta
         //new DownloadTextTask().execute("https://raw.githubusercontent.com/dzdrav/Android-kafici/master/kafici.csv");
         new DownloadTextTask().execute("http://web.studenti.math.pmf.unizg.hr/~dzdrava/kafici.csv");
+
+        setContentView(R.layout.recyclerview_activity);
 
         //testna baza
         /*
@@ -86,9 +85,6 @@ public class MainActivity extends AppCompatActivity {
 
         initializeData();
         initializeAdapter();
-
-        // download datoteke s interneta
-        new DownloadTextTask().execute("https://drive.google.com/open?id=1fAjmFNToIaPoTjb20bL7UF3tZcXnhRUw");
     }
 
     @Override
@@ -123,37 +119,6 @@ public class MainActivity extends AppCompatActivity {
         db.close();
     }
 
-
-
-    // otvaranje http konekcije
-    private InputStream OpenHttpConnection(String urlString) throws IOException {
-        InputStream in = null;
-        int response = -1;
-
-        URL url = new URL(urlString);
-        URLConnection conn = url.openConnection();
-
-        if (!(conn instanceof HttpURLConnection))
-            throw new IOException("Not a HTTP connection");
-        try{
-            HttpURLConnection httpConn = (HttpURLConnection) conn;
-            httpConn.setAllowUserInteraction(false);
-            httpConn.setInstanceFollowRedirects(true);
-            httpConn.setRequestMethod("GET");
-            httpConn.connect();
-            response = httpConn.getResponseCode();
-            if (response == HttpURLConnection.HTTP_OK) {
-                in = httpConn.getInputStream();
-            }
-        }
-        catch (Exception ex)
-        {
-            Log.d("Networking", ex.getLocalizedMessage());
-            throw new IOException("Error connecting");
-        }
-        return in;
-    }
-
     // Dinko čitanje teksta iz datoteke s neta
     private ArrayList<String> DownloadText(String URL)
     {
@@ -182,26 +147,20 @@ public class MainActivity extends AppCompatActivity {
     // pomoćna klasa za dohvaćanje teksta
     private class DownloadTextTask extends AsyncTask<String, Void, ArrayList<String>> {
         protected ArrayList<String> doInBackground(String... urls) {
-        //protected String doInBackground(String... urls) {
             return DownloadText(urls[0]);
         }
 
         @Override
         protected void onPostExecute(ArrayList<String> result) {
-            //Toast.makeText(getBaseContext(), result, Toast.LENGTH_LONG).show();
-            //Log.d("Kafici ", result.get(0));
-
             db.open();
             Cursor c = db.dohvatiSveKafice();
             // umećemo retke samo ako je tablica prazna
             // TODO maknuti uvjet ako postoji druga provjera za ponovni unos kafića u OnCreate()
             if ((c ==  null) || (c.getCount() == 0) ) {
-            //if (c.getCount() < 15 ) {
             Long id;
                 for (String redak : result){
                     String[] kategorije = redak.split(";");
                     if (!kategorije[0].equals("ID")) {
-                        //Log.d("Kontrola", "Usli u IF");
                         try{
                             id = db.umetniKafic(kategorije[1], kategorije[2], Integer.parseInt(kategorije[3])
                                     , Double.parseDouble(kategorije[4])
@@ -219,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
                                     , Integer.parseInt(kategorije[16])
                                     , Integer.parseInt(kategorije[17])
                             );
-                            Log.d("Kafic ", id.toString());
+                            Log.d("Umetnut kafic ID", id.toString());
                         }
                         catch (Exception e){
                             Log.e("Insert greška",e.toString());
@@ -228,7 +187,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             db.close();
-
         }
     }
 
@@ -239,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void filter(View view){
 
-        Toast.makeText(this, "Filtrirano!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.filter_filtrirano, Toast.LENGTH_LONG).show();
         boolean isCheckedKava = kava.isChecked();
         boolean isCheckedCijena = cijena.isChecked();
         boolean isCheckedPusacki=pusacki.isChecked();

@@ -139,16 +139,16 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
     //nepotrebno
     /*private void initializeData(){
         kaficList = new ArrayList<>();
-        //33
-        kaficList.add(new Kafic(33,"Miss Donut", "Harambasiceva 32a", R.drawable.miss_donut,2,1.5,4.5));
+        //k34
+        kaficList.add(new Kafic(k34,"Miss Donut", "Harambasiceva 32a", R.drawable.miss_donut,2,1.5,4.5));
         //19
-        kaficList.add(new Kafic(19,"Finjak", "Vlaska 78", R.drawable.finjak,1,2,4));
+        kaficList.add(new Kafic(19,"Finjak", "Vlaska 78", R.drawable.k20,1,2,4));
         //42
-        kaficList.add(new Kafic(42,"Potter caffe", "Sesvetska 1", R.drawable.potter,4,3.75,3.75));
+        kaficList.add(new Kafic(42,"Potter caffe", "Sesvetska 1", R.drawable.k43,4,3.75,3.75));
         //43
-        kaficList.add(new Kafic(43,"Procaffe", "Tkalciceva 54", R.drawable.procaffe,4,2.75,3.75));
+        kaficList.add(new Kafic(43,"Procaffe", "Tkalciceva 54", R.drawable.k44,4,2.75,3.75));
         //53
-        kaficList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.tesla_smart_bar,1,4,5));
+        kaficList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.k54,1,4,5));
     }*/
 
 }

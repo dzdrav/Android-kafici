@@ -36,13 +36,14 @@
             android:src="@drawable/dollar"
             android:scaleType="fitCenter"
             />
+
         <TextView
-            style="@android:style/TextAppearance.Medium"
             android:id="@+id/cijena"
+            style="@android:style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:text="Cijena"/>
+            android:text="@string/cijena" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,13 +56,14 @@
             android:src="@drawable/coffe_icon"
             android:scaleType="fitCenter"
             />
+
         <TextView
-            style="@android:style/TextAppearance.Medium"
             android:id="@+id/kava"
+            style="@android:style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:text="Kava"/>
+            android:text="@string/kava" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,13 +76,14 @@
             android:src="@drawable/noise_icon"
             android:scaleType="fitCenter"
             />
+
         <TextView
-            style="@android:style/TextAppearance.Medium"
             android:id="@+id/buka"
+            style="@android:style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:text="Buka"/>
+            android:text="@string/buka" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -94,14 +97,15 @@
             android:src="@drawable/crowd_icon"
             android:scaleType="fitCenter"
             />
+
         <TextView
-            style="@android:style/TextAppearance.Medium"
             android:id="@+id/guzva"
+            style="@android:style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toEndOf="@+id/guzvaIcon"
             android:layout_marginLeft="10dp"
-            android:text="Gužva"/>
+            android:layout_toEndOf="@+id/guzvaIcon"
+            android:text="@string/guzva" />
     </LinearLayout>
 
     <LinearLayout
@@ -116,14 +120,15 @@
             android:src="@drawable/light_icon"
             android:scaleType="fitCenter"
             />
+
         <TextView
-            style="@android:style/TextAppearance.Medium"
             android:id="@+id/osvjetljenje"
+            style="@android:style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toEndOf="@+id/osvjetljenjeIcon"
             android:layout_marginLeft="10dp"
-            android:text="Osvijetljenje"/>
+            android:layout_toEndOf="@+id/osvjetljenjeIcon"
+            android:text="@string/osvjetljenje" />
     </LinearLayout>
 
     <LinearLayout
@@ -137,13 +142,14 @@
             android:src="@drawable/bartender_icon"
             android:scaleType="fitCenter"
             />
+
         <TextView
-            style="@android:style/TextAppearance.Medium"
             android:id="@+id/osoblje"
+            style="@android:style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:text="Osoblje"/>
+            android:text="@string/osoblje" />
     </LinearLayout>
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"

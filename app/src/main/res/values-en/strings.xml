@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bars</string>
+    <string name="buka">Noise</string>
+    <string name="cijena">Price</string>
+    <string name="guzva">Crowded</string>
+    <string name="kava">Coffee</string>
+    <string name="osoblje">Staff</string>
+    <string name="osvjetljenje">Lights</string>
+    <string name="filter_dobra_kava">Quality coffee</string>
+    <string name="filter_dog_friendly">Dog friendly</string>
+    <string name="filter_dozvoljeno_pusenje">Smoking allowed</string>
+    <string name="filter_filter_button">Filter</string>
+    <string name="filter_nepuscacki_prostor">Non-smoking area</string>
+    <string name="filter_povoljno">Affordable</string>
+    <string name="filter_uticnice">Electrical outlet</string>
+    <string name="filter_wifi">WiFi</string>
+    <string name="odaberi_filter">Choose filters</string>
+    <string name="filter_filtrirano">Filtered!</string>
+</resources>
