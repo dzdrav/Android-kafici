@@ -2,6 +2,7 @@ package com.example.dzdrava.kafici;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.location.Address;
 import android.location.Geocoder;
 import android.support.annotation.IntegerRes;
@@ -24,12 +25,13 @@ import java.util.List;
 
 public class DisplayActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private List<Kafic> kaficList;
+    private List<KaficDetaljno> kaficList;
     //kafic nije klase Kafic nego KaficDetaljno
-    Kafic kafic;
+    KaficDetaljno kafic;
     TextView name;
     TextView adress;
     ImageView cover;
+    private DBAdapter db = null;
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -71,15 +73,18 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+        db = new DBAdapter(this);
+
         //umjesto initializeData, dobavljamo kafic iz baze s id-em "message"
 
-        initializeData();
+        //initializeData();
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(RVAdapter.KaficViewHolder.EXTRA_MESSAGE);
 
         //iz baze, dobavi redak s id-em "message" i u strukturu KaficDetaljno spremi potrebne stupce
-        kafic=findKafic(Integer.parseInt(message));
+        int id=Integer.parseInt(message);
+        kafic=getKafic(id);
 
         name=(TextView)findViewById(R.id.name);
         adress=(TextView)findViewById(R.id.adress);
@@ -94,17 +99,24 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
         mapFragment.getMapAsync(this);
     }
 
-    //nepotrebno
-    Kafic findKafic(int dbId) {
-        for(Kafic kafic : kaficList) {
-            if (kafic.dbId==dbId)
-                return kafic;
-        }
-        return null;
+    KaficDetaljno getKafic(int dbId) {
+        KaficDetaljno newKafic;
+        db.open();
+        Cursor c=db.dohvatiKafic(dbId);
+        newKafic=new KaficDetaljno(
+                Integer.parseInt(c.getString(0)),c.getString(1),c.getString(2),Integer.parseInt(c.getString(3)),
+                Double.parseDouble(c.getString(4)),Double.parseDouble(c.getString(7)),Double.parseDouble(c.getString(6)),
+                Double.parseDouble(c.getString(7)),Double.parseDouble(c.getString(8)),Double.parseDouble(c.getString(9))
+                ,Double.parseDouble(c.getString(10)),Double.parseDouble(c.getString(11)),Double.parseDouble(c.getString(12))
+                ,Integer.parseInt(c.getString(13)),Integer.parseInt(c.getString(14)),Integer.parseInt(c.getString(15)),Integer.parseInt(c.getString(16)),Integer.parseInt(c.getString(17)),
+                R.drawable.coffee
+        );
+        db.close();
+        return newKafic;
     }
 
     //nepotrebno
-    private void initializeData(){
+    /*private void initializeData(){
         kaficList = new ArrayList<>();
         //33
         kaficList.add(new Kafic(33,"Miss Donut", "Harambasiceva 32a", R.drawable.miss_donut,2,1.5,4.5));
@@ -116,6 +128,6 @@ public class DisplayActivity extends AppCompatActivity implements OnMapReadyCall
         kaficList.add(new Kafic(43,"Procaffe", "Tkalciceva 54", R.drawable.procaffe,4,2.75,3.75));
         //53
         kaficList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.tesla_smart_bar,1,4,5));
-    }
+    }*/
 
 }

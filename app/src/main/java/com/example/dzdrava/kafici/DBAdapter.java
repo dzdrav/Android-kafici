@@ -13,18 +13,14 @@ import android.util.Log;
  */
 
 public class DBAdapter {
-    static final String KEY_ROWID = "_id";
-    static final String KEY_NAME = "name";
-    static final String KEY_EMAIL = "email";
+    //static final String KEY_ROWID = "_id";
+    //static final String KEY_NAME = "name";
+    //static final String KEY_EMAIL = "email";
     static final String TAG = "DBAdapter";
 
-    static final String DATABASE_NAME = "MyDB";
-    static final String DATABASE_TABLE = "contacts";
+    static final String DATABASE_NAME = "Kafici";
+    static final String DATABASE_TABLE = "glavna";
     static final int DATABASE_VERSION = 1;
-
-    static final String DATABASE_CREATE =
-            "create table contacts (_id integer primary key autoincrement, "
-                    + "name text not null, email text not null);";
 
     // DMS stringovi za tablicu kafici
     public static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + KaficContract.KaficEntry.TABLE_NAME + " (" +
@@ -49,6 +45,12 @@ public class DBAdapter {
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + KaficContract.KaficEntry.TABLE_NAME;
     //--
+
+    //static final String DATABASE_CREATE =
+      //      "create table contacts (_id integer primary key autoincrement, "
+        //            + "name text not null, email text not null);";
+
+    static final String DATABASE_CREATE=SQL_CREATE_ENTRIES;
 
     final Context context;
 
@@ -78,12 +80,12 @@ public class DBAdapter {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            // TEST: dodajemo isti segment koda za dodatnu tablicu kafici
+            /*// TEST: dodajemo isti segment koda za dodatnu tablicu kafici
             try {
                 db.execSQL(SQL_CREATE_ENTRIES);
             } catch (SQLException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
 
         @Override
@@ -161,50 +163,88 @@ public class DBAdapter {
             ,KaficContract.KaficEntry.COLUMN_DOZVOLJENIPSI
             ,KaficContract.KaficEntry.COLUMN_UTICNICE}, null, null, null, null, null);
     }
-    //-- do ovdje
 
-    //---insert a contact into the database---
-    public long insertContact(String name, String email)
-    {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_NAME, name);
-        initialValues.put(KEY_EMAIL, email);
-        return db.insert(DATABASE_TABLE, null, initialValues);
-    }
-
-    //---deletes a particular contact---
-    public boolean deleteContact(long rowId)
-    {
-        return db.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
-    }
-
-    //---retrieves all the contacts---
-    public Cursor getAllContacts()
-    {
-        return db.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_NAME,
-                KEY_EMAIL}, null, null, null, null, null);
-    }
-
-    //---retrieves a particular contact---
-    public Cursor getContact(long rowId) throws SQLException
+    public Cursor dohvatiKafic(long rowId) throws SQLException
     {
         Cursor mCursor =
-                db.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-                                KEY_NAME, KEY_EMAIL}, KEY_ROWID + "=" + rowId, null,
+                db.query(true, KaficContract.KaficEntry.TABLE_NAME, new String[] {
+                                KaficContract.KaficEntry.COLUMN_ID
+                                ,KaficContract.KaficEntry.COLUMN_NAZIV
+                                ,KaficContract.KaficEntry.COLUMN_ADRESA
+                                ,KaficContract.KaficEntry.COLUMN_BROJOCJENA
+                                ,KaficContract.KaficEntry.COLUMN_PROSJECNAGUZVA
+                                ,KaficContract.KaficEntry.COLUMN_OSVJETLJENJE
+                                ,KaficContract.KaficEntry.COLUMN_RAZINABUKE
+                                ,KaficContract.KaficEntry.COLUMN_LJUBAZNOSTOSOBLJA
+                                ,KaficContract.KaficEntry.COLUMN_CIJENE
+                                ,KaficContract.KaficEntry.COLUMN_KVALITETAKAVE
+                                ,KaficContract.KaficEntry.COLUMN_UREDNOSTWC
+                                ,KaficContract.KaficEntry.COLUMN_UDOBNOSTSTOLICA
+                                ,KaficContract.KaficEntry.COLUMN_UKUPNAATMOSFERA
+                                ,KaficContract.KaficEntry.COLUMN_PROSTORZANEPUSACE
+                                ,KaficContract.KaficEntry.COLUMN_DOZVOLJENOPUSENJE
+                                ,KaficContract.KaficEntry.COLUMN_WIFI
+                                ,KaficContract.KaficEntry.COLUMN_DOZVOLJENIPSI
+                                ,KaficContract.KaficEntry.COLUMN_UTICNICE
+                        }, KaficContract.KaficEntry.COLUMN_ID + "=" + rowId, null,
                         null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
         return mCursor;
     }
+    //-- do ovdje
 
+    //DONE
+    //---insert a contact into the database---
+    /*public long insertContact(String name, String email)
+    {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(KEY_NAME, name);
+        initialValues.put(KEY_EMAIL, email);
+        return db.insert(DATABASE_TABLE, null, initialValues);
+    }*/
+
+    //TODO
+    //---deletes a particular contact---
+    /*public boolean deleteContact(long rowId)
+    {
+        return db.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+    }*/
+
+    //DONE
+    //---retrieves all the contacts---
+    /*public Cursor getAllContacts()
+    {
+        return db.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_NAME,
+                KEY_EMAIL}, null, null, null, null, null);
+    }*/
+
+    //DONE
+    //---retrieves a particular contact---
+    /*public Cursor getContact(long rowId) throws SQLException
+    {
+        Cursor mCursor =
+                db.query(true, DATABASE_TABLE, new String[] {
+                                KEY_ROWID,
+                                KEY_NAME,
+                                KEY_EMAIL
+                }, KEY_ROWID + "=" + rowId, null,
+                        null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }*/
+
+    //TODO
     //---updates a contact---
-    public boolean updateContact(long rowId, String name, String email)
+    /*public boolean updateContact(long rowId, String name, String email)
     {
         ContentValues args = new ContentValues();
         args.put(KEY_NAME, name);
         args.put(KEY_EMAIL, email);
         return db.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
-    }
+    }*/
 
 }

@@ -33,12 +33,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Dinko inicijalizacija adaptera
-        db = new DBAdapter(this);
-
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.recyclerview_activity);
+
+        // Dinko inicijalizacija adaptera
+        db = new DBAdapter(this);
+
+        //testna baza
+        db.open();
+        db.umetniKafic("Miss Donut","Harambašićeva 31,10000 Zagreb",1,5,5,3,4,3,4,4,3,3,1,1,-1,1,-1);
+        db.umetniKafic("Finjak","Vlaška 78,10000 Zagreb",1,4,4,4,4,2,4,5,3,5,1,1,1,1,-1);
+        db.umetniKafic("Procaffe","Tkalčićeva 54, 10000 Zagreb",4,1.75,2.75,3,4.25,2.75,3.75,5,4.75,4.75,1,1,1,1,1);
+        db.umetniKafic("Potter","Sesvetska 1, 10000 Zagreb",4,2,3.5,2.25,3.75,3.75,3.75,4.25,4,4.5,1,1,1,1,1);
+        db.umetniKafic("Tesla Smart Bar","Horvaćanska cesta 146a, 10000 Zagreb",1,3,2,3,3,3,4,4,5,5,0,1,1,-1,1);
+        db.close();
 
         btn = (Button) findViewById(R.id.button2);
         chb1 = (CheckBox) findViewById(R.id.checkBox1);
@@ -76,23 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         "Email:  " + c.getString(2),
                 Toast.LENGTH_LONG).show();
     }*/
-    // TODO promijeniti odredište spremanja ovih podataka, radi testa stavljamo ih u Listu varijablu članicu
-    // prilagoditi novom konstruktoru
-    /*
-    public void PopulateData()
-    {
-        db.open();
-        Cursor c = db.dohvatiSveKafice();
-        if (c.moveToFirst())
-        {
-            do {
-                Toast.makeText(this, "Novi unos:\nid:" + c.getString(0) + "\n" + "Naziv: " + c.getString(1) + "\n" + "Adresa" + c.getString(2),Toast.LENGTH_SHORT);
-                kaficList.add(new Kafic(Integer.parseInt( c.getString(0) ), c.getString(1), c.getString(2), R.drawable.miss_donut));
-            } while(c.moveToNext());
-        }
-        db.close();
-    }*/
-    // --Dinko
+
 
 
     private void initializeData(){
@@ -101,33 +94,17 @@ public class MainActivity extends AppCompatActivity {
         //kaficList.add(new Kafic(id,ime,adresa,R.drawable.coffee,brojOcjena,cijena,kava);
         //ako ima slike, umjesto coffee ime slike
 
-        //33
-        kaficList.add(new Kafic(33,"Miss Donut", "Harambasiceva 32a", R.drawable.miss_donut,2,1.5,4.5));
-        //19
-        kaficList.add(new Kafic(19,"Finjak", "Vlaska 78", R.drawable.finjak,1,2,4));
-        //42
-        kaficList.add(new Kafic(42,"Potter caffe", "Sesvetska 1", R.drawable.potter,4,3.75,3.75));
-        //43
-        kaficList.add(new Kafic(43,"Procaffe", "Tkalciceva 54", R.drawable.procaffe,4,2.75,3.75));
-        //53
-        //kaficList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.tesla_smart_bar));
-
         // dohvaćanje kafića iz baze i pospremanje u listu
-        //PopulateData();
-        //--get all contacts---
-        /*
+
         db.open();
-        Cursor c = db.getAllContacts();
+        Cursor c = db.dohvatiSveKafice();
         if (c.moveToFirst())
         {
             do {
-                DisplayContact(c);
+                kaficList.add(new Kafic(Integer.parseInt(c.getString(0)),c.getString(1), c.getString(2), R.drawable.coffee,Integer.parseInt(c.getString(3)),Double.parseDouble(c.getString(8)),Double.parseDouble(c.getString(9))));
             } while (c.moveToNext());
         }
-        db.close();
-        */
-        kaficList.add(new Kafic(53,"Tesla Smart Bar", "Horvacanska cesta 146a", R.drawable.tesla_smart_bar,1,4,5));
-    }
+        db.close();    }
 
     private void initializeAdapter(){
         RVAdapter adapter = new RVAdapter(kaficList);
